@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="Antivirus.Pages.quarantine"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             mc:Ignorable="d" Width="720.956" Height="495.06" Loaded="UserControl_Loaded_1">
+    <Grid Margin="0,0,0,10">
+
+        <ListView Margin="0,37,0,53" x:Name="QuarantinedList" Background="Transparent" BorderBrush="#FFF9F2F2" Foreground="#FFF1E5E5">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="File" Width="500" TextBlock.Foreground="White" >
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox Content="{Binding File_Path}" IsChecked="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListBoxItem}}, Path=IsSelected}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Header="Virus Type" Width="500" TextBlock.Foreground="White" >
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Virus_Type}" Foreground="White"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="Restore" HorizontalAlignment="Left" Margin="433,352,0,0" VerticalAlignment="Top" Width="82" Background="#FF007ACC" Foreground="White" Click="Button_Click_2"/>
+
+        <Button Content="Delete" HorizontalAlignment="Left" Margin="218,352,0,0" VerticalAlignment="Top" Width="100" Background="#FF007ACC" Foreground="#FFF7EEEE" Click="Button_Click_1"/>
+        <CheckBox Content="Select All" x:Name="SelectAll" HorizontalAlignment="Right" Margin="0,10,622,0" VerticalAlignment="Top" Checked="SelectAll_Checked" Unchecked="SelectAll_Unchecked" Height="22" Width="99"/>
+    </Grid>
+</UserControl>

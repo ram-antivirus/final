@@ -1,0 +1,724 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{712991B3-E1C1-4B91-B8D4-6F9AA1ED3D52}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Antivirus</RootNamespace>
+    <AssemblyName>Antivirus</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>iconR.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FirstFloor.ModernUI">
+      <HintPath>..\packages\ModernUI.WPF.1.0.9\lib\net45\FirstFloor.ModernUI.dll</HintPath>
+    </Reference>
+    <Reference Include="Hardcodet.Wpf.TaskbarNotification, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hardcodet.NotifyIcon.Wpf.1.0.8\lib\net45\Hardcodet.Wpf.TaskbarNotification.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Interop.IWshRuntimeLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>C:\Users\ashu\Downloads\SampleApp\StartupFolderShortcut\bin\Debug\Interop.IWshRuntimeLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.Shell32, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>..\..\..\..\sahil-project(1-jun-2017)PoojaFinal\Antivirus\StartupFolderShortcut\bin\Debug\Interop.Shell32.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro, Version=1.5.0.23, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.5.0\lib\net45\MahApps.Metro.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MetroFramework">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Client, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WindowsAPICodePack.Core.1.1.0\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.5.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Tulpep.NotificationWindow, Version=1.1.38.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Tulpep.NotificationWindow.1.1.38\lib\net40\Tulpep.NotificationWindow.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ClientEndPoint.cs" />
+    <Compile Include="FireWallPopup.xaml.cs">
+      <DependentUpon>FireWallPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="IService1.cs" />
+    <Compile Include="ModernDialog1.xaml.cs">
+      <DependentUpon>ModernDialog1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NotifyIconViewModel.cs" />
+    <Compile Include="Pages\ApplicationScan.xaml.cs">
+      <DependentUpon>ApplicationScan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\blockUrl.xaml.cs">
+      <DependentUpon>blockUrl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\browser.xaml.cs">
+      <DependentUpon>browser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ChromeExtension.xaml.cs">
+      <DependentUpon>ChromeExtension.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Dash.xaml.cs">
+      <DependentUpon>Dash.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Dashboard.xaml.cs">
+      <DependentUpon>Dashboard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FancyPopup.xaml.cs">
+      <DependentUpon>FancyPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FancyPopupSubscription.xaml.cs">
+      <DependentUpon>FancyPopupSubscription.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\feature.xaml.cs">
+      <DependentUpon>feature.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MyPopup.xaml.cs">
+      <DependentUpon>MyPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\parentalControl.xaml.cs">
+      <DependentUpon>parentalControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ParentalPopup.xaml.cs">
+      <DependentUpon>ParentalPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\pcclean.xaml.cs">
+      <DependentUpon>pcclean.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Person1.cs" />
+    <Compile Include="Pages\Person2.cs" />
+    <Compile Include="Pages\PopUp.xaml.cs">
+      <DependentUpon>PopUp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Potential.cs" />
+    <Compile Include="Pages\PUA.xaml.cs">
+      <DependentUpon>PUA.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\quarantine.xaml.cs">
+      <DependentUpon>quarantine.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\registry.xaml.cs">
+      <DependentUpon>registry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Report.xaml.cs">
+      <DependentUpon>Report.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Restart.xaml.cs">
+      <DependentUpon>Restart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\safe.xaml.cs">
+      <DependentUpon>safe.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\support.xaml.cs">
+      <DependentUpon>support.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\tools.xaml.cs">
+      <DependentUpon>tools.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Unblock.xaml.cs">
+      <DependentUpon>Unblock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UpdatePopupBottom.xaml.cs">
+      <DependentUpon>UpdatePopupBottom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UsbDetect.xaml.cs">
+      <DependentUpon>UsbDetect.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Potential.cs" />
+    <Compile Include="PotenTially.xaml.cs">
+      <DependentUpon>PotenTially.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="RealTimePopup.xaml.cs">
+      <DependentUpon>RealTimePopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Results.cs" />
+    <Compile Include="Service1.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="StringReverser.cs" />
+    <Compile Include="UpdatePopup.xaml.cs">
+      <DependentUpon>UpdatePopup.xaml</DependentUpon>
+    </Compile>
+    <Page Include="FireWallPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="mytheme.xaml.cs">
+      <DependentUpon>mytheme.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="notification.xaml.cs">
+      <DependentUpon>notification.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\aboutus.xaml.cs">
+      <DependentUpon>aboutus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\cleanup.xaml.cs">
+      <DependentUpon>cleanup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\myacc.xaml.cs">
+      <DependentUpon>myacc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FireWallClass.cs" />
+    <Compile Include="Pages\home.xaml.cs">
+      <DependentUpon>home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\scan.xaml.cs">
+      <DependentUpon>scan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\setting.xaml.cs">
+      <DependentUpon>setting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\update.xaml.cs">
+      <DependentUpon>update.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PauseToken.cs" />
+    <Compile Include="PauseTokenSource.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Page Include="ModernDialog1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="mytheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="notification.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NotifyIconResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\aboutus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ApplicationScan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\blockUrl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\browser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ChromeExtension.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\cleanup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Dash.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Dashboard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\FancyPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\FancyPopupSubscription.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\feature.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\myacc.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MyPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\parentalControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\ParentalPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\pcclean.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PopUp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PUA.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\quarantine.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\registry.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Report.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Restart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\safe.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\scan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\setting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\support.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\tools.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Unblock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\update.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\UpdatePopupBottom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\UsbDetect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PotenTially.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RealTimePopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdatePopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="app.manifest" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cl.png" />
+    <Resource Include="Images\sc.png" />
+    <Resource Include="Images\security.png" />
+    <Resource Include="Images\updates.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\services.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\myhome.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\aboutus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Treetog-Junior-Network-firewall.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CleanMyMac-1-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\browsers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\blackshade.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="NATUPNPLib">
+      <Guid>{1C565858-F302-471E-B409-F180AA4ABEC6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="NETCONLib">
+      <Guid>{43E734CA-043D-4A70-9A2C-A8F254063D91}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="NetFwTypeLib">
+      <Guid>{58FBCF7C-E7A9-467C-80B3-FC65E8FCCA08}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="WUApiLib">
+      <Guid>{B596CC9F-56E5-419E-A622-E01BB457431E}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\black.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AccessFile\AccessFile.csproj">
+      <Project>{4856180f-5c9e-4f8a-9a75-8cea6b6b5f70}</Project>
+      <Name>AccessFile</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ContractLibrary\ContractLibrary.csproj">
+      <Project>{38c37e59-68fa-4afe-ab69-902062182eb7}</Project>
+      <Name>ContractLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Counter\Counter.csproj">
+      <Project>{ec283cea-40b0-4aa4-8747-83720cb6688b}</Project>
+      <Name>Counter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FilePath\FilePath.csproj">
+      <Project>{18adbfb2-7827-48f5-8e49-63295e0198f4}</Project>
+      <Name>FilePath</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FullScanCounter\FullScanCounter.csproj">
+      <Project>{d3070a66-ce2b-447a-8ddc-7945e4deb0d6}</Project>
+      <Name>FullScanCounter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\nClam\nClam.csproj">
+      <Project>{4f90429f-3cb1-4972-aec1-3a06fa8841d1}</Project>
+      <Name>nClam</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\about.png" />
+    <Resource Include="Images\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon-download29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\main.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\themeback.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="clamd.exe" />
+    <Content Include="Clean.png" />
+    <Resource Include="Images\parents.png" />
+    <Resource Include="Images\kachra.png" />
+    <Resource Include="Images\browser.png" />
+    <Resource Include="Images\reg.png" />
+    <Resource Include="Images\chrome.ico" />
+    <Resource Include="Images\firefox.png" />
+    <Resource Include="Images\internet_explorer-512.png" />
+    <Resource Include="Images\Microsoft-Edge-Browser-logo-219x286.png" />
+    <Resource Include="Images\uninstall.png" />
+    <Resource Include="Images\recycle.ico" />
+    <Resource Include="Images\onlinesupport.png" />
+    <Resource Include="Images\emailsupport.png" />
+    <Resource Include="Images\icon_xl.png" />
+    <Resource Include="Images\livesupport.png" />
+    <Resource Include="Images\parectcontrol.png" />
+    <Resource Include="Images\phonesupport.png" />
+    <Resource Include="Images\remotsupport.png" />
+    <Resource Include="Images\websupport.png" />
+    <Resource Include="Images\twt.png" />
+    <Resource Include="Images\facebook_circle_color-256.png" />
+    <Resource Include="Images\keyboard.png" />
+    <Resource Include="Images\full-parental-controls_icon_large.png" />
+    <Resource Include="Images\parentchild.jpg" />
+    <Resource Include="Images\parent.jpg" />
+    <Resource Include="Images\check.png" />
+    <Resource Include="Images\cross.png" />
+    <Resource Include="Images\setion.png" />
+    <Resource Include="Images\cleanerim.jpg" />
+    <Resource Include="Images\techsuport.jpg" />
+    <Resource Include="Images\useracc.png" />
+    <Resource Include="Images\logo.jpg" />
+    <Resource Include="Images\kspersky-antivirus.jpg" />
+    <Resource Include="Images\logo1.png" />
+    <Resource Include="Images\microsoftlogo.jpg" />
+    <Resource Include="Images\Bulbred.png" />
+    <Resource Include="Images\websecurity.png" />
+    <Resource Include="Images\cpuutiliz.png" />
+    <Resource Include="Images\Preferences.png" />
+    <Resource Include="Images\updte.png" />
+    <Resource Include="Images\logo.png" />
+    <Resource Include="Images\warning.png" />
+    <Resource Include="Images\parentalcartoon.jpg" />
+    <Resource Include="Images\puja1.png" />
+    <Resource Include="Images\puja121.png" />
+    <Resource Include="Images\ds.jpg" />
+    <Resource Include="Images\play.png" />
+    <Resource Include="Images\Close.png" />
+    <Resource Include="Images\green-tick.jpg" />
+    <Resource Include="Images\Red-Cross.png" />
+    <Resource Include="Images\appl-scan.png" />
+    <Resource Include="Images\shildlogo.png" />
+    <Resource Include="Images\fb.png" />
+    <Resource Include="Images\Twitter.png" />
+    <Resource Include="Images\Twitter1.png" />
+    <Resource Include="Images\logo_yippee.png" />
+    <Resource Include="Images\parentalcartoon91.png" />
+    <Resource Include="Images\crossmark.png" />
+    <Resource Include="Images\huge-cross.png" />
+    <Resource Include="Images\installapp.PNG" />
+    <Resource Include="Images\instalapl.PNG" />
+    <Resource Include="Images\uninstalapl.PNG" />
+    <Resource Include="Images\pla.PNG" />
+    <Resource Include="Images\apl.PNG" />
+    <Resource Include="Images\canclebutton.PNG" />
+    <Resource Include="Images\poojacross.png" />
+    <Resource Include="Images\crossmark1.jpg" />
+    <Resource Include="Images\scanwhite.png" />
+    <Resource Include="Images\warning2.png" />
+    <Resource Include="Images\program.PNG" />
+    <Content Include="icon.ico" />
+    <Resource Include="iconR.ico" />
+    <Content Include="Images\ex1.jpg" />
+    <Content Include="Images\ex2.png" />
+    <Content Include="Images\ex4.png" />
+    <Content Include="Images\images.png" />
+    <Content Include="Images\settingwhite2.jpg" />
+    <Content Include="Images\warningimage.png" />
+    <Content Include="Images\warningPopup.jpg" />
+    <Content Include="Images\windows-7-software-icon.png" />
+    <Resource Include="Images\window_logo.png" />
+    <Resource Include="Images\yippee-final-min.png" />
+    <Resource Include="Images\yippee 2.png" />
+    <Content Include="local.xml" />
+    <Resource Include="Yippee_Cleaner123.ico" />
+    <Resource Include="Images\download.jpg" />
+    <Resource Include="Images\hr-serv.png" />
+    <Resource Include="Images\yellow-bars-fade_7680x2160.jpg" />
+    <Resource Include="Images\images.jpg" />
+    <Resource Include="Images\windows-sea-green-press-computer-wallpaper-background-20570.jpg" />
+    <Resource Include="Images\Blue-gradient-Wallpaper-1080p.png" />
+    <Resource Include="Images\black3.png" />
+    <Resource Include="Images\Clean.png" />
+    <Resource Include="Images\support.png" />
+    <Resource Include="Images\pcmanagement.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\NewFolder1\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <SplashScreen Include="Images\splash %282%29.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\MapSuiteDependency-WindowsAPICodePack.10.1.0\build\net45\MapSuiteDependency-WindowsAPICodePack.targets" Condition="Exists('..\packages\MapSuiteDependency-WindowsAPICodePack.10.1.0\build\net45\MapSuiteDependency-WindowsAPICodePack.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\MapSuiteDependency-WindowsAPICodePack.10.1.0\build\net45\MapSuiteDependency-WindowsAPICodePack.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MapSuiteDependency-WindowsAPICodePack.10.1.0\build\net45\MapSuiteDependency-WindowsAPICodePack.targets'))" />
+  </Target>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

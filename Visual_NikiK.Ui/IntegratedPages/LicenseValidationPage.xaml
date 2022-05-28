@@ -1,0 +1,86 @@
+<UserControl x:Class="Visual_NikiK.Ui.LicenseValidationPage"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:utilities="clr-namespace:Xeam.VisualInstaller.Utilities"
+             xmlns:XeamDesignTime="clr-namespace:Xeam.VisualInstaller;assembly=Xeam.VisualInstaller"
+             d:DataContext="{d:DesignInstance Type=XeamDesignTime:LicenseValidationPageViewModel, IsDesignTimeCreatable=True}"              
+             mc:Ignorable="d"
+             d:DesignHeight="500" Width="603.731">
+    <!-- user control resources are only for design time. Comment in to get a preview of the theme in design mode.
+         if you leave this tag active, the page design is overwritten with resources defined in the page -->
+    <!--<UserControl.Resources>
+        <ResourceDictionary Source="pack://application:,,,/Xeam.Base.UI;component/Themes/Xeam.Theme.xaml" />
+    </UserControl.Resources>-->
+    <Grid >
+        <DockPanel Margin="20,20,20,20" LastChildFill="True">
+            <TextBlock TextWrapping="Wrap" DockPanel.Dock="Top" Text="{Binding Title}" Margin="10,40,40,10"  FontSize="36" FontWeight="Bold" Foreground="#FF007ACC"/>
+
+            <DockPanel DockPanel.Dock="Bottom" HorizontalAlignment="Right" Margin="0,0,0,0">
+                <Button  Name="nxtLicense" Command="{Binding NextCommand}" DockPanel.Dock="Right" Content="{Binding NextButtonText}" IsEnabled="False"
+                        Width="100" Height="25" TabIndex="4" Click="nxtLicense_Click" />
+                <Button Command="{Binding CancelCommand}" Margin="0,0,10,0" DockPanel.Dock="Right" Content="{Binding ButtonCancelText}"  Width="100" Height="25" TabIndex="3" />
+                <Button Command="{Binding PreviousCommand}" Visibility="{Binding PreviousButtonVisibility}" Margin="0,0,10,0" DockPanel.Dock="Right" Content="{Binding ButtonPreviousText}"  Width="100" Height="25" TabIndex="2"/>
+            </DockPanel>
+            <Separator Style="{DynamicResource BaseSeparator}" DockPanel.Dock="Bottom" Margin="0, 10, 0, 20"  Background="{DynamicResource AccentColorBrush}" Opacity="0.5" />
+
+            <DockPanel DockPanel.Dock="Top" Margin="0,0,0,0" LastChildFill="True">
+                <DockPanel DockPanel.Dock="Top"   Visibility="{Binding MachineKeyVisibility}" LastChildFill="True"/>
+                <DockPanel DockPanel.Dock="Top"  LastChildFill="True" Visibility="{Binding InputWithoutMaskTextBoxVisibility}">
+                    <Image Margin="5,5,0,0" Source="{Binding ImgPath}" DockPanel.Dock="Bottom" Height="25" Width="25"></Image>
+                    <TextBox Name="SerialWithoutInputTextBox"  Text="{Binding LicenseKeyWithoutInputMask, UpdateSourceTrigger=PropertyChanged}" TextChanged="SerialWithoutInputTextBoxTextChanged" Margin="30,0,30,0"  ScrollViewer.VerticalScrollBarVisibility="Auto" FontFamily="{DynamicResource ContentFontFamily}" FontSize="{DynamicResource ContentFontSize}" AcceptsReturn="True" TextWrapping="Wrap" TabIndex="1"  >
+                        <!--<i:Interaction.Behaviors>
+                            <utilities:TextBoxInputMaskBehaviour InputMask="AAAAA-AAA-AAAAAA-AA-AAAAAA" />
+                        </i:Interaction.Behaviors>-->
+                    </TextBox>
+
+                </DockPanel>
+            </DockPanel>
+        </DockPanel>
+        <Button Content="Validate" Visibility="Hidden" IsEnabled="False" HorizontalAlignment="Left" Margin="159,453,0,0" VerticalAlignment="Top" Width="96" Height="27" RenderTransformOrigin="-0.586,0.69" Click="Button_Click"/>
+        <Button Content="Continue With Trial" Visibility="Visible"  Name="btntrial" HorizontalAlignment="Left" Margin="20,443,0,0" VerticalAlignment="Top" Width="148" Height="54" Click="Button_Click_1"/>
+        <Grid Margin="0,-6,0,6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBox Name="firsttxt" MaxLength="5" CharacterCasing="Upper" HorizontalAlignment="Left" Height="23" Margin="16,353,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59" TextChanged="firsttxt_TextChanged_1"/>
+            <TextBox Name="secondtxt"  MaxLength="5" CharacterCasing="Upper" HorizontalAlignment="Left" Height="23" Margin="118,353,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59" TextChanged="secondtxt_TextChanged_1"/>
+            <TextBox  Name="thirdtxt" MaxLength="5" CharacterCasing="Upper" HorizontalAlignment="Right" Height="23" Margin="0,353,300,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59" TextChanged="thirdtxt_TextChanged_1"/>
+            <TextBox  Name="fourthtxt" MaxLength="5" CharacterCasing="Upper" HorizontalAlignment="Left" Height="23" Margin="370,353,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59" TextChanged="fourthtxt_TextChanged_1"/>
+            <TextBox  Name="fifthtxt" MaxLength="5" CharacterCasing="Upper" HorizontalAlignment="Left" Height="23" Margin="484,353,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" TextChanged="fifthtxt_TextChanged_1"/>
+            <TextBlock HorizontalAlignment="Left" Margin="89,342,0,0" TextWrapping="Wrap" Text="-" FontSize="30" FontWeight="Bold" VerticalAlignment="Top" Height="26" Width="15" RenderTransformOrigin="0.5,0.5">
+
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="370,57,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Height="26" Width="1" RenderTransformOrigin="0.5,0.5">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="200,340,0,0" TextWrapping="Wrap" Text="-" FontSize="30" FontWeight="Bold" VerticalAlignment="Top" Height="26" Width="15" RenderTransformOrigin="0.5,0.5"/>
+            <TextBlock HorizontalAlignment="Left" Margin="335,339,0,0" TextWrapping="Wrap" Text="-" FontSize="30" FontWeight="Bold" VerticalAlignment="Top" Height="26" Width="15" RenderTransformOrigin="0.5,0.5"/>
+            <TextBlock HorizontalAlignment="Left" Margin="450,337,0,0" TextWrapping="Wrap" Text="-" FontSize="30" FontWeight="Bold" VerticalAlignment="Top" Height="26" Width="15" RenderTransformOrigin="0.5,0.5"/>
+            <TextBox x:Name="textBoxName" HorizontalAlignment="Left" Height="25" Margin="248,135,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="352" TextChanged="textBox_TextChanged"/>
+            <TextBlock x:Name="textBlock" Text="First Name" HorizontalAlignment="Left" Foreground="#FF007ACC" Margin="42,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="143"/>
+            <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Text="Email" Foreground="#FF007ACC" Margin="42,202,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="143"/>
+
+
+            <TextBox x:Name="textBox_Email" HorizontalAlignment="Left" Height="25" Margin="248,199,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="352" TextChanged="textBox_TextChanged"/>
+            <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" Text="Country Name" Foreground="#FF007ACC" Margin="42,238,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="143"/>
+            <TextBox x:Name="textBox_Country" HorizontalAlignment="Left" Height="25" Margin="248,235,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="352" TextChanged="textBox_TextChanged"/>
+            <TextBlock x:Name="textBlock_Copy2" HorizontalAlignment="Left" Text="Contact No." Foreground="#FF007ACC" Margin="39,274,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="143"/>
+            <TextBox x:Name="textBox_Contact" HorizontalAlignment="Left" Height="25" Margin="248,271,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="352" TextChanged="textBox_TextChanged"/>
+            <TextBlock x:Name="textBlock_Copy3" HorizontalAlignment="Left" Text="City" Foreground="#FF007ACC" Margin="41,309,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="143"/>
+            <TextBox x:Name="city" HorizontalAlignment="Left" Height="25" Margin="249,307,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="352" TextChanged="textBox_TextChanged"/>
+            <TextBox x:Name="Dealercode" HorizontalAlignment="Left" Height="25" Margin="248,164,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="352" TextChanged="textBox_TextChanged"/>
+            <TextBlock x:Name="textBlock_Copy4" Text="Dealer Code" HorizontalAlignment="Left" Foreground="#FF007ACC" Margin="42,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="143"/>
+        </Grid>
+        <Button Content="Validate" Name="btnValidate" HorizontalAlignment="Left" Margin="241,387,0,0" VerticalAlignment="Top" Width="87" RenderTransformOrigin="-7.886,-0.96" Height="36" Click="btnValidate_Click"/>
+
+    </Grid>
+</UserControl>

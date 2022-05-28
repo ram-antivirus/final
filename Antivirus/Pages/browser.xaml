@@ -1,0 +1,82 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             xmlns:Custom="http://metro.mahapps.com/winfx/xaml/controls" x:Class="Antivirus.Pages.browser"
+             mc:Ignorable="d"  Width="720.956" Height="495.06">
+    <Grid >
+        
+        <Custom:Tile IsEnabled="False" Name="tlchrome" HorizontalAlignment="Left" Margin="39,10,0,0" VerticalAlignment="Top" Height="53" Width="54">
+            <Custom:Tile.Background>
+                <ImageBrush ImageSource="/Antivirus;component/Images/chrome.ico"/>
+            </Custom:Tile.Background>
+        </Custom:Tile>
+        <Custom:Tile Name="tlmozila" IsEnabled="False" HorizontalAlignment="Left" Margin="39,98,0,0" VerticalAlignment="Top" Height="55" Width="54" RenderTransformOrigin="0.51,-0.127">
+            <Custom:Tile.Background>
+                <ImageBrush ImageSource="/Antivirus;component/Images/firefox.png"/>
+            </Custom:Tile.Background>
+        </Custom:Tile>
+        <Custom:Tile Name="tlinet"  HorizontalAlignment="Left" Margin="39,201,0,0" VerticalAlignment="Top" Height="48" Width="59" RenderTransformOrigin="0.462,1.01">
+            <Custom:Tile.Background>
+                <ImageBrush ImageSource="/Antivirus;component/Images/internet_explorer-512.png"/>
+            </Custom:Tile.Background>
+        </Custom:Tile>
+        <Custom:Tile Name="tledhe" HorizontalAlignment="Left" Margin="34,285,0,0" VerticalAlignment="Top" Height="72" Width="74">
+            <Custom:Tile.Background>
+                <ImageBrush ImageSource="/Antivirus;component/Images/Microsoft-Edge-Browser-logo-219x286.png"/>
+            </Custom:Tile.Background>
+        </Custom:Tile>
+        <TextBlock HorizontalAlignment="Left" Margin="29,68,0,0" TextWrapping="Wrap" Text="Google Chrome" VerticalAlignment="Top" Width="103" Foreground="#FF1081CD" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="29,158,0,0" TextWrapping="Wrap" Text="Mozilla Firefox" VerticalAlignment="Top" Width="103" Foreground="#FF1081CD" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="24,254,0,0" TextWrapping="Wrap" Text="Internet Explorer" VerticalAlignment="Top" Width="118" Foreground="#FF1081CD" FontWeight="Bold" Height="17"/>
+        <TextBlock HorizontalAlignment="Left" Margin="39,341,0,0" TextWrapping="Wrap" Text="Microsoft Edge" VerticalAlignment="Top" Width="103" Foreground="#FF1081CD" FontWeight="Bold"/>
+        <Grid HorizontalAlignment="Left" Height="309" Margin="199,80,0,0" VerticalAlignment="Top" Width="512" RenderTransformOrigin="0.509,0.502">
+
+            <Custom:ProgressRing IsActive="False" Name="pbring" HorizontalAlignment="Left" Margin="219,0,0,0" VerticalAlignment="Top" Height="57" Width="65" Foreground="#FF007ACC"/>
+            <CheckBox Name="cache" Content="Cache" HorizontalAlignment="Left" Margin="33,84,0,0" VerticalAlignment="Top" Width="123" Height="30" Checked="CheckBox_Checked_1" Foreground="#FF007ACC" FontSize="14" IsChecked="True" FontWeight="Bold" />
+            <CheckBox  Name="cookies" Content="Cookies" HorizontalAlignment="Left" Margin="33,142,0,0" VerticalAlignment="Top" Height="31" Width="123" Foreground="#FF007ACC" FontSize="14" IsChecked="True" FontWeight="Bold"/>
+            <CheckBox Name="his" Content="History" HorizontalAlignment="Left" Margin="33,201,0,0" VerticalAlignment="Top" Width="123" Height="30" Checked="CheckBox_Checked" Foreground="#FF007ACC" IsChecked="True" FontSize="14" FontWeight="Bold"/>
+            <Border BorderThickness="2" BorderBrush="LightGray" Margin="151,73,10,72">
+                <TextBlock Margin="30,18,34,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="147" Foreground="black" FontSize="14" Text="Over Here, From the List you can select the browser that you need to clean. It will clean the cache, cookies and history altogether if all check boxes are checked. If user wants to clean the particular option then user can change it by using check and uncheck options."/>
+            </Border>
+            <TextBlock HorizontalAlignment="Left" Margin="419,277,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="83" Foreground="Black" Height="22">
+        <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" Foreground="black"
+               NavigateUri="https://ramantivirus.com/ram-browser-cleaner/">Learn more</Hyperlink>
+            </TextBlock>
+
+        </Grid>
+
+        <Button x:Name="fbg" Content="Clean Browsers" BorderThickness="0" Background="#FF007ACC" Foreground="White" HorizontalAlignment="Left" Margin="246,34,0,0" VerticalAlignment="Top" Width="136" Click="Button_Click_2" IsHitTestVisible="True" FontWeight="Bold">
+            <Button.ToolTip>
+                <ToolTip>
+                    <StackPanel>
+
+                        <TextBlock>Clear All browsing Data ,History and Saved Password</TextBlock>
+                    </StackPanel>
+                </ToolTip>
+            </Button.ToolTip>
+        </Button>
+        <Button BorderThickness="0" Content="Reset Browsers" HorizontalAlignment="Left" Margin="514,34,0,0" Foreground="White" VerticalAlignment="Top" Width="136" Background="#FF007ACC" Click="Button_Click_3" FontWeight="Bold">
+            <Button.ToolTip>
+                <ToolTip>
+                    <StackPanel>
+                        <TextBlock>All the selected browsers will reset all the settings</TextBlock>
+                    </StackPanel>
+                </ToolTip>
+            </Button.ToolTip>
+        </Button>
+        <CheckBox Name="chkchrome" HorizontalAlignment="Left" Margin="5,32,0,0" VerticalAlignment="Top"/>
+        <CheckBox Name="chkfire" HorizontalAlignment="Left" Margin="5,116,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.622,5.215" Height="19"/>
+        <CheckBox Name="chkinet" HorizontalAlignment="Left" Margin="5,218,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.622,5.215" Height="19"/>
+        <CheckBox Name="chkedge" HorizontalAlignment="Left" Margin="5,319,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.622,5.215" Height="19"/>
+        <Rectangle HorizontalAlignment="Left"  Height="37"  Width="39"  Margin="26,403,0,0" VerticalAlignment="Top" >
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/Antivirus;component/Images/yippee 2.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <TextBlock HorizontalAlignment="Left" FontStyle="Italic" Margin="94,414,0,0" TextWrapping="Wrap" Text="Let's Get Secured" VerticalAlignment="Top" Width="183" Height="26" Foreground="#FF007ACC" FontSize="16" FontWeight="Bold"/>
+
+    </Grid>
+</UserControl>

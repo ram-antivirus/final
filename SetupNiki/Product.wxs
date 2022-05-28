@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<?define Antivirus_TargetDir=$(var.Antivirus.TargetDir)?>
+ 
+	<?define repeat_TargetDir=$(var.repeat.TargetDir)?>
+	<?define StartupFolderShortcut_TargetDir=$(var.StartupFolderShortcut.TargetDir)?>
+	<?define WindowsServiceUpdate_TargetDir=$(var.WindowsServiceUpdate.TargetDir)?>
+	<?define NikiUsb_TargetDir=$(var.NikiUsb.TargetDir)?><?define SystemTray_TargetDir=$(var.SystemTray.TargetDir)?><?define ApplicationScanner_TargetDir=$(var.ApplicationScanner.TargetDir)?>
+	<Product Id="{3341C700-0D22-49D2-BA78-4CE6E57FFA07}" Name="SetupNiki" Language="1033" Version="1.0.0.0" Manufacturer="Yippee Technology" UpgradeCode="169f0447-324d-404b-b211-99ce1b3c82b3">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+		<Icon Id="Antivirus.exe" SourceFile="Images\Icon.ico" />
+		<Property Id="ARPPRODUCTICON" Value="Antivirus.exe" />
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate />
+
+		<Feature Id="ProductFeature" Title="SetupNiki" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+			<ComponentGroupRef Id="Shortcuts" />
+			<ComponentGroupRef Id="ProgramFilesFolder_files" />
+			<ComponentGroupRef Id="ProgramFilesFolder_files1" />
+		</Feature>
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="INSTALLFOLDER" Name="SetupNiki">
+					<Directory Id="db" Name="db" />
+				</Directory>
+			</Directory>
+			<Directory Id="ProgramMenuFolder" Name="Programs">
+				<Directory Id="ProgramMenuDir" Name="RAM Antivirus" />
+			</Directory>
+			<Directory Id="DesktopFolder" Name="Desktop" />
+		</Directory>
+	</Fragment>
+
+	<Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+			<!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. -->
+			<!-- <Component Id="ProductComponent"> -->
+			<!-- TODO: Insert files, registry keys, and other resources here. -->
+			<!-- </Component> -->
+			<!--<Component Id="Permission.InstallFolder1" Guid="{6682087D-2AE7-4998-A187-A206ADB9485E}">
+				<CreateFolder>
+
+					<Permission User="Everyone" WriteExtendedAttributes="yes" WriteAttributes="yes" CreateFile="yes" CreateChild="yes" DeleteChild="no" GenericWrite="no" GenericRead="yes" GenericExecute="yes" />
+				</CreateFolder>
+			</Component>-->
+			<Component Id="clamd.exe" Guid="6205c458-aa95-4d85-9ee1-4d17fd45cc56">
+				<File Id="clamd.exe" Name="clamd.exe" Source="$(var.Antivirus_TargetDir)clamd.exe" />
+			</Component>
+			<Component Id="Clean.png" Guid="c0e80f1f-008b-41bc-8ff9-be44d1851e53">
+				<File Id="Clean.png" Name="Clean.png" Source="$(var.Antivirus_TargetDir)Clean.png" />
+			</Component>
+
+			<Component Id="Antivirus.exe" Guid="1af43849-54c1-4fd5-907b-6ed78beb1fff">
+				<File Id="Antivirus.exe" Name="Antivirus.exe" Source="$(var.Antivirus_TargetDir)Antivirus.exe">
+					<Shortcut Id="StartMenuIcon" Directory="ProgramMenuDir" Icon="Antivirus.exe" Name="RAM Ultimate Antivirus" WorkingDirectory="INSTALLDIR" Advertise="yes" />
+					<Shortcut Id="DesktopIcon" Directory="DesktopFolder" Icon="Antivirus.exe" Name="RAM Ultimate Antivirus" WorkingDirectory="INSTALLDIR" Advertise="yes" />
+				</File>
+			</Component>
+			<Component Id="Antivirus.exe.config" Guid="db2b1c10-b6ec-41a2-a9bc-97f8a6e9a69b">
+				<File Id="Antivirus.exe.config" Name="Antivirus.exe.config" Source="$(var.Antivirus_TargetDir)Antivirus.exe.config" />
+			</Component>
+			<Component Id="AccessFile.dll" Guid="55fafaa7-f5ab-4e37-8218-4387b5e60a36">
+				<File Id="AccessFile.dll" Name="AccessFile.dll" Source="$(var.Antivirus_TargetDir)AccessFile.dll" />
+			</Component>
+			<Component Id="ContractLibrary.dll" Guid="ba7ea6ff-5874-4678-bee6-fa603f25d3ac">
+				<File Id="ContractLibrary.dll" Name="ContractLibrary.dll" Source="$(var.Antivirus_TargetDir)ContractLibrary.dll" />
+			</Component>
+			<Component Id="FilePath.dll" Guid="9bc5002a-41ea-43a7-a25a-1962644c828b">
+				<File Id="FilePath.dll" Name="FilePath.dll" Source="$(var.Antivirus_TargetDir)FilePath.dll" />
+			</Component>
+			<Component Id="Counter.dll" Guid="d153c648-88fc-45b3-b0ea-543c682f8750">
+				<File Id="Counter.dll" Name="Counter.dll" Source="$(var.Antivirus_TargetDir)Counter.dll" />
+			</Component>
+			<Component Id="FullScanCounter.dll" Guid="9074e2d5-4e19-4976-abf9-f802ec82f5e5">
+				<File Id="FullScanCounter.dll" Name="FullScanCounter.dll" Source="$(var.Antivirus_TargetDir)FullScanCounter.dll" />
+			</Component>
+			<Component Id="nClam.dll" Guid="d61a59c6-7f86-4b74-8992-2128e2f00723">
+				<File Id="nClam.dll" Name="nClam.dll" Source="$(var.Antivirus_TargetDir)nClam.dll" />
+			</Component>
+			<Component Id="FirstFloor.ModernUI.dll" Guid="932369d4-7b4a-481d-a22c-a359d3998457">
+				<File Id="FirstFloor.ModernUI.dll" Name="FirstFloor.ModernUI.dll" Source="$(var.Antivirus_TargetDir)FirstFloor.ModernUI.dll" />
+			</Component>
+			<Component Id="Hardcodet.Wpf.TaskbarNotification.dll" Guid="30e2d2ab-07ed-4dca-98a2-f7ce17896bec">
+				<File Id="Hardcodet.Wpf.TaskbarNotification.dll" Name="Hardcodet.Wpf.TaskbarNotification.dll" Source="$(var.Antivirus_TargetDir)Hardcodet.Wpf.TaskbarNotification.dll" />
+			</Component>
+			<Component Id="MahApps.Metro.dll" Guid="9f812a97-7264-4769-b9f1-30ac80ad942e">
+				<File Id="MahApps.Metro.dll" Name="MahApps.Metro.dll" Source="$(var.Antivirus_TargetDir)MahApps.Metro.dll" />
+			</Component>
+			
+			
+			  
+			
+			
+				 
+			
+			 
+			
+			 
+			
+			
+			
+			
+			
+			<Component Id="Newtonsoft.Json.dll" Guid="69cb48bf-8e98-496a-bb12-a3c58ea93d10">
+				<File Id="Newtonsoft.Json.dll" Name="Newtonsoft.Json.dll" Source="$(var.Antivirus_TargetDir)Newtonsoft.Json.dll" />
+			</Component>
+		
+			<Component Id="repeat.exe" Guid="6e644c48-69d9-41cc-8d6e-6110a69757b1">
+				<File Id="repeat.exe" Name="repeat.exe" Source="$(var.repeat_TargetDir)repeat.exe" />
+				<ServiceInstall Id="ServiceInstaller" Type="ownProcess" Name="Real Time Scan" DisplayName="Real Time Scan" Description="Monitoring Files" Start="auto" Account="[SERVICEACCOUNT]" Password="[SERVICEPASSWORD]" ErrorControl="normal" />
+				<ServiceControl Id="StartService" Start="install" Stop="both" Remove="uninstall" Name="Real Time Scan" Wait="yes" />
+			</Component>
+			<Component Id="repeat.exe.config" Guid="158bbdd1-b231-445e-90df-f2d69b398287">
+				<File Id="repeat.exe.config" Name="repeat.exe.config" Source="$(var.repeat_TargetDir)repeat.exe.config" />
+			</Component>
+			<Component Id="StartupFolderShortcut.exe" Guid="c354841d-1c4e-427f-8b0d-cdd989ea12cc">
+				<File Id="StartupFolderShortcut.exe" Name="StartupFolderShortcut.exe" Source="$(var.StartupFolderShortcut_TargetDir)StartupFolderShortcut.exe" />
+			</Component>
+		
+			<Component Id="System.Windows.Interactivity.dll" Guid="2b58dc0d-00e7-499d-adfe-3ea1597f0c57">
+				<File Id="System.Windows.Interactivity.dll" Name="System.Windows.Interactivity.dll" Source="$(var.Antivirus_TargetDir)System.Windows.Interactivity.dll" />
+			</Component>
+		
+			<Component Id="Interop.IWshRuntimeLibrary.dll" Guid="6fb34a5d-230a-401e-87d3-d53d6eb24580">
+				<File Id="Interop.IWshRuntimeLibrary.dll" Name="Interop.IWshRuntimeLibrary.dll" Source="$(var.StartupFolderShortcut_TargetDir)Interop.IWshRuntimeLibrary.dll" />
+			</Component>
+			<Component Id="Interop.Shell32.dll" Guid="3aed79ce-d8c0-4fd4-8e41-dabe3026514b">
+				<File Id="Interop.Shell32.dll" Name="Interop.Shell32.dll" Source="$(var.StartupFolderShortcut_TargetDir)Interop.Shell32.dll" />
+			</Component>
+      
+      
+			<Component Id="NikiUsb.exe" Guid="96e504b9-e643-435c-9795-f153454026aa">
+				<File Id="NikiUsb.exe" Name="NikiUsb.exe" Source="$(var.NikiUsb_TargetDir)NikiUsb.exe" />
+				<ServiceInstall Id="ServiceInstallerNiki" Type="ownProcess" Name="DetectingUsbVirus" DisplayName="DetectingUsbVirus" Description="DetectingUsbVirus" Start="auto" Account="[SERVICEACCOUNT]" Password="[SERVICEPASSWORD]" ErrorControl="normal" />
+				<ServiceControl Id="StartServiceNiki" Start="install" Stop="both" Remove="uninstall" Name="DetectingUsbVirus" Wait="yes" />
+			</Component>
+			<Component Id="NikiUsb.exe.config" Guid="788814d2-c8b9-4243-ac9a-9139d7b71788">
+				<File Id="NikiUsb.exe.config" Name="NikiUsb.exe.config" Source="$(var.NikiUsb_TargetDir)NikiUsb.exe.config" />
+			</Component>
+      <Component Id="RegName" Guid="{05B689F6-0045-4831-A389-9235972ECA0E}">
+				<RegistryValue Root="HKCU" Key="Software\Microsoft\YippeeTech" Name="RegName" Value="T" Type="string" />
+			</Component>
+      <Component Id="SubscriptionAntivirusLst" Guid="{7CDCC985-B9B2-4941-BFCE-AB6D20AA031C}">
+				<RegistryValue Root="HKLM" Key="SOFTWARE\WOW6432Node\SubscriptionAntivirus" Name="Last Open Date" Value="T" Type="string" />
+				<RegistryValue Root="HKLM" Key="SOFTWARE\WOW6432Node\SubscriptionAntivirus" Name="Expiration Date" Value="T" Type="string" />
+				<RegistryValue Root="HKLM" Key="SOFTWARE\WOW6432Node\SubscriptionAntivirus" Name="Install Date" Value="T" Type="string" />
+			</Component>
+      <Component Id="UpdateDate" Guid="{7167EBC8-1B1A-474F-B6A2-280209FBE3BA}">
+				<RegistryValue Root="HKCU" Key="Software\Microsoft\YippeeTech" Name="UpdateDate" Value="UpdateDate" Type="string" />
+				<RegistryValue Root="HKCU" Key="Software\Microsoft\YippeeTech" Name="NextUpdateDate" Value="NextUpdateDate" Type="string" />
+			</Component>
+      <Component Id="Microsoft.WindowsAPICodePack.dll" Guid="1ed1a051-6de5-4673-bd9d-c5cd742043a4">
+				<File Id="Microsoft.WindowsAPICodePack.dll" Name="Microsoft.WindowsAPICodePack.dll" Source="$(var.Antivirus_TargetDir)Microsoft.WindowsAPICodePack.dll" />
+			</Component>
+      <Component Id="SystemTray.exe.config" Guid="c16386ee-b3b1-4dc3-bacd-6d509d998768">
+			  <File Id="SystemTray.exe.config" Name="SystemTray.exe.config" Source="$(var.SystemTray_TargetDir)SystemTray.exe.config" />
+			</Component>
+      <Component Id="Tulpep.NotificationWindow.dll" Guid="9cbdfcfa-0268-4b62-9d2c-7c3ce4b57f3a">
+			  <File Id="Tulpep.NotificationWindow.dll" Name="Tulpep.NotificationWindow.dll" Source="$(var.Antivirus_TargetDir)Tulpep.NotificationWindow.dll" />
+			</Component>
+      <Component Id="yippee_2.png" Guid="09302db1-e37a-4211-88e0-501f8daebd13">
+			  <File Id="yippee_2.png" Name="yippee 2.png" Source="$(var.SystemTray_TargetDir)yippee 2.png" />
+			</Component>
+			<Component Id="SystemTray.exe" Guid="9d6cab4b-9f18-45d6-a59e-e4e53b2d2454">
+			  <File Id="SystemTray.exe" Name="SystemTray.exe" Source="$(var.SystemTray_TargetDir)SystemTray.exe" />
+			</Component>
+			<Component Id="iconR.ico" Guid="57d19e98-7336-4eba-abc3-fbf7825722f6">
+			  <File Id="iconR.ico" Name="iconR.ico" Source="$(var.NikiUsb_TargetDir)iconR.ico" />
+			</Component>
+			<Component Id="RAMServiceUpdate.exe.config" Guid="e6b6ffe0-9fbf-4421-80e2-5942328fa357">
+			  <File Id="RAMServiceUpdate.exe.config" Name="RAMServiceUpdate.exe.config" Source="$(var.WindowsServiceUpdate_TargetDir)RAMServiceUpdate.exe.config" />
+			</Component>
+			<Component Id="icon.ico" Guid="7a6949e6-555c-4c05-88a8-554bbd73bdca">
+			  <File Id="icon.ico" Name="icon.ico" Source="$(var.Antivirus_TargetDir)icon.ico" />
+			</Component>
+			<Component Id="ApplicationScanner.dll" Guid="25421a1e-936f-4bbe-9f5a-ca5e57e7e264">
+			  <File Id="ApplicationScanner.dll" Name="ApplicationScanner.dll" Source="$(var.ApplicationScanner_TargetDir)ApplicationScanner.dll" />
+			</Component>
+			<Component Id="RAMServiceUpdate.exe" Guid="20f4a6e5-0364-459d-a965-23823d7f9d56">
+			  <File Id="RAMServiceUpdate.exe" Name="RAMServiceUpdate.exe" Source="$(var.WindowsServiceUpdate_TargetDir)RAMServiceUpdate.exe" />
+			</Component>
+  </ComponentGroup>
+	</Fragment>
+
+	<Fragment>
+		<ComponentGroup Id="ProgramFilesFolder_files" Directory="db">
+			
+			
+			
+			<!--<Component Id="file35" Guid="{C5F35CC1-2A45-4FB6-8A07-7DC19F0BEDE2}">
+				<File Id="file35" Name="malware.hdb" Source="$(var.Antivirus_TargetDir)\db\malware.hdb"></File>
+			</Component>
+			<Component Id="file378" Guid="{BB981907-76CE-4C52-AD8E-856FD6F1B63D}">
+				<File Id="file378" Name="ransom.hdb" Source="$(var.Antivirus_TargetDir)\db\ransom.hdb"></File>
+			</Component>
+			 <Component Id="file3756" Guid="{A185074F-05D4-44B7-9C6E-C92DD7F44AED}">
+				<File Id="file3756" Name="spyware.hdb" Source="$(var.Antivirus_TargetDir)\db\spyware.hdb"></File>
+			</Component>
+			 <Component Id="file3755" Guid="{123FD908-3350-44B0-B795-FBC3355C875B}">
+				<File Id="file3755" Name="worm.hdb" Source="$(var.Antivirus_TargetDir)\db\worm.hdb"></File>
+			 
+			</Component>
+			
+			 <Component Id="fileAdware" Guid="{B2CB0BFE-5004-4939-9E52-F2FA9FBDADA6}">
+				<File Id="fileAdware" Name="Adware.hdb" Source="$(var.Antivirus_TargetDir)\db\Adware.hdb"></File>
+			 
+			</Component>
+			
+			<Component Id="fileDropper" Guid="{1B41D4AE-3520-4DA5-B261-DC4C675686A3}">
+				<File Id="fileDropper" Name="Droppers.hdb" Source="$(var.Antivirus_TargetDir)\db\Droppers.hdb"></File>
+			 
+			</Component>
+			 <Component Id="fileTrojen" Guid="{6C44F1A1-BAE8-455E-9282-587081CD5F40}">
+				<File Id="fileTrojen" Name="trojan.hdb" Source="$(var.Antivirus_TargetDir)\db\trojan.hdb"></File>
+			 
+			</Component>-->
+		 
+			<Component Id="local.xml" Guid="{0EF3F3EF-C076-42C6-A589-FD05B158296D}">
+				<File Id="local.xml" Name="local.xml" Source="$(var.Antivirus_TargetDir)local.xml" />
+			</Component>
+		</ComponentGroup>
+	</Fragment>
+	<Fragment>
+		<ComponentGroup Id="Shortcuts" Directory="ProgramMenuDir">
+			<Component Id="ProgramMenuShortcut">
+				<RemoveFolder Id="ProgramMenuDir" On="uninstall" />
+				<RegistryValue Root="HKCU" Key="Software\[Manufacturer]\[ProductName]" Type="string" Value="" KeyPath="yes" />
+			</Component>
+		</ComponentGroup>
+	</Fragment>
+	<Fragment>
+		<!--<ComponentGroup Id="ProgramFilesFolder_files" Directory="ProgramFilesFolder">
+			<Component Id="Images_windows_7_software_icon.png" Guid="c24d4fdd-450c-49fe-83e5-a9d186c6a2d9">
+				<File Id="Images_windows_7_software_icon.png" Name="windows-7-software-icon.png" Source="$(var.Antivirus_TargetDir)Images\windows-7-software-icon.png" />
+			</Component>
+		</ComponentGroup>-->
+	</Fragment>
+	<Fragment>
+		<!--<ComponentGroup Id="ProgramFilesFolder_files" Directory="ProgramFilesFolder">
+			<Component Id="Images_windows_7_software_icon.png" Guid="d51cf0a0-5365-46f4-8889-34f1822e47b9">
+				<File Id="Images_windows_7_software_icon.png" Name="windows-7-software-icon.png" Source="$(var.Antivirus_TargetDir)Images\windows-7-software-icon.png" />
+			</Component>
+		</ComponentGroup>-->
+	</Fragment>
+	<Fragment>
+		<ComponentGroup Id="ProgramFilesFolder_files1" Directory="ProgramFilesFolder">
+			<!--<Component Id="Images_images.png" Guid="d7a51026-425a-442d-bd8b-2839780b982f">
+				<File Id="Images_images.png" Name="images.png" Source="$(var.Antivirus_TargetDir)Images\images.png" />
+			</Component>
+			<Component Id="Images_settingwhite2.jpg" Guid="d28523ac-3696-46b3-b29e-3fc6b405d7f0">
+				<File Id="Images_settingwhite2.jpg" Name="settingwhite2.jpg" Source="$(var.Antivirus_TargetDir)Images\settingwhite2.jpg" />
+			</Component>
+			<Component Id="Images_warningimage.png" Guid="0540630b-4cbc-4f5e-8483-05e7e9651dec">
+				<File Id="Images_warningimage.png" Name="warningimage.png" Source="$(var.Antivirus_TargetDir)Images\warningimage.png" />
+			</Component>-->
+			<!--<Component Id="Images_warningPopup.jpg" Guid="8b5d0350-be6a-4f9d-8540-2cbd1e41eb4a">
+				<File Id="Images_warningPopup.jpg" Name="warningPopup.jpg" Source="$(var.Antivirus_TargetDir)Images\warningPopup.jpg" />
+			</Component>-->
+			<!--<Component Id="Images_windows_7_software_icon.png" Guid="46fc62fb-2e06-4605-8095-f6556ccd20b0">
+				<File Id="Images_windows_7_software_icon.png" Name="windows-7-software-icon.png" Source="$(var.Antivirus_TargetDir)Images\windows-7-software-icon.png" />
+			</Component>-->
+			<!--<Component Id="Images_ex4.png" Guid="74bb35a3-075a-4b14-8c4e-86ede26d5268">
+			  <File Id="Images_ex4.png" Name="ex4.png" Source="$(var.Antivirus_TargetDir)Images\ex4.png" />
+			</Component>-->
+			<!--<Component Id="Images_ex1.jpg" Guid="c97aee8c-e47d-407b-82c7-e008226e9ebf">
+			  <File Id="Images_ex1.jpg" Name="ex1.jpg" Source="$(var.Antivirus_TargetDir)Images\ex1.jpg" />
+			</Component>-->
+			<!--<Component Id="Images_ex2.png" Guid="f5f67694-7773-49c9-a291-94f24863686f">
+			  <File Id="Images_ex2.png" Name="ex2.png" Source="$(var.Antivirus_TargetDir)Images\ex2.png" />
+			</Component>-->
+		</ComponentGroup>
+	</Fragment>
+</Wix>

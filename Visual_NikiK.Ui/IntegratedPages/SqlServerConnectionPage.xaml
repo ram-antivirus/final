@@ -1,0 +1,65 @@
+<UserControl x:Class="Visual_NikiK.Ui.SqlServerConnectionPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:utilities="clr-namespace:Xeam.VisualInstaller.Utilities;assembly=Xeam.VisualInstaller"
+             xmlns:XeamDesignTime="clr-namespace:Xeam.VisualInstaller;assembly=Xeam.VisualInstaller"
+             d:DataContext="{d:DesignInstance Type=XeamDesignTime:SqlServerConnectionPageViewModel, IsDesignTimeCreatable=True}" 
+             mc:Ignorable="d"
+             d:DesignHeight="500" d:DesignWidth="450">
+    <!-- user control resources are only for design time. Comment in to get a preview of the theme in design mode.
+         if you leave this tag active, the page design is overwritten with resources defined in the page -->
+    <!--<UserControl.Resources>
+        <ResourceDictionary Source="pack://application:,,,/Xeam.Base.UI;component/Themes/Xeam.Theme.xaml" />
+    </UserControl.Resources>-->
+    <Grid >
+        <DockPanel Margin="20,20,20,20" LastChildFill="False">
+            <TextBlock TextWrapping="Wrap" DockPanel.Dock="Top" Text="{Binding Title}" Margin="0,10,0,10" FontFamily="{DynamicResource HeaderFontFamily}" FontSize="18"/>
+
+            <DockPanel LastChildFill="True" Margin="0,10,0,0" DockPanel.Dock="Top" >
+                <Label DockPanel.Dock="Left"  FontFamily="{DynamicResource ContentFontFamily}" FontSize="{DynamicResource ContentFontSize}" Content="{Binding ServerNameText}"></Label>
+                <Button Command="{Binding RefreshServersCommand}"  Width="100" Content="{Binding RefreshText}" DockPanel.Dock="Right" Margin="10,0,0,0"  Height="25" Visibility="Visible" TabIndex="1"/>
+                <ComboBox DockPanel.Dock="Right" Margin="20,0,0,0" Height="25" DropDownOpened="ServerNameEntries_DropDownOpened"  IsEditable="True" ItemsSource="{Binding Path=ServerNameEntries}"  Text="{Binding ServerName, UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="ServerName" SelectedValuePath="ServerName" TabIndex="0"  ></ComboBox>
+            </DockPanel>
+            
+            <Separator Style="{DynamicResource BaseSeparator}" DockPanel.Dock="Top" Margin="0, 20, 0, 20"  Background="{DynamicResource AccentColorBrush}" Opacity="0.5" />
+
+            <RadioButton GroupName="Authentification"  Margin="5,5,0,5" DockPanel.Dock="Top" IsChecked="{Binding AuthentifiactionWindowsChecked}" TabIndex="2">
+                <TextBlock Text="{Binding UseWindowsAuthenticationText}" FontFamily="{DynamicResource ContentFontFamily}" FontSize="{DynamicResource ContentFontSize}" Margin="0,-3,0,0"/>
+            </RadioButton>
+            <RadioButton GroupName="Authentification" Margin="5,5,0,5"  DockPanel.Dock="Top" IsChecked="{Binding AuthentifiactionSqlChecked}" TabIndex="3">
+                <TextBlock Text="{Binding UseSQLAuthenticationText}"  FontFamily="{DynamicResource ContentFontFamily}" FontSize="{DynamicResource ContentFontSize}" Margin="0,-3,0,0"/>
+            </RadioButton>
+            <DockPanel LastChildFill="True" Margin="0,10,0,0" DockPanel.Dock="Top" >
+                <TextBox DockPanel.Dock="Right" Width="250" Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding UserNameEnabled}" TabIndex="4"></TextBox>
+                <Label DockPanel.Dock="Left" Margin="20,0,0,0" FontFamily="{DynamicResource ContentFontFamily}" FontSize="{DynamicResource ContentFontSize}"  IsEnabled="{Binding UserNameEnabled}" Content="{Binding UsernameText}" ></Label>
+            </DockPanel>
+            
+            <DockPanel LastChildFill="True" Margin="0,10,0,0" DockPanel.Dock="Top" >
+                <PasswordBox Name="sqlPassword"  utilities:PasswordHelper.Attach="True" utilities:PasswordHelper.Password="{Binding Path=Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" Width="250" IsEnabled="{Binding PasswordEnabled}" TabIndex="5"></PasswordBox>
+                <Label DockPanel.Dock="Left" Margin="20,0,0,0" FontFamily="{DynamicResource ContentFontFamily}" FontSize="{DynamicResource ContentFontSize}" IsEnabled="{Binding PasswordEnabled}" Content="{Binding PasswordText}"></Label>
+            </DockPanel>
+
+            <Separator Style="{DynamicResource BaseSeparator}" DockPanel.Dock="Top" Margin="0, 20, 0, 20"  Background="{DynamicResource AccentColorBrush}" Opacity="0.5" />
+
+            <DockPanel DockPanel.Dock="Bottom" HorizontalAlignment="Right" Margin="0,0,0,0">
+                <Button Command="{Binding NextCommand}" DockPanel.Dock="Right" Content="{Binding NextButtonText}" IsEnabled="{Binding NextButtonEnabled}" Width="100" Height="25" TabIndex="11"   />
+                <Button Command="{Binding CancelCommand}" Margin="0,0,10,0" DockPanel.Dock="Right" Content="{Binding ButtonCancelText}"  Width="100" Height="25" TabIndex="10" />
+                <Button Command="{Binding PreviousCommand}" Visibility="{Binding PreviousButtonVisibility}" Margin="0,0,10,0" DockPanel.Dock="Right" Content="{Binding ButtonPreviousText}"  Width="100" Height="25" TabIndex="9" />
+            </DockPanel>
+
+            <DockPanel DockPanel.Dock="Top" Margin="0,5,0,0" LastChildFill="True" Visibility="{Binding ShowDatabaseSelection}">
+                <ComboBox IsTextSearchEnabled="False" IsTextSearchCaseSensitive="True" DockPanel.Dock="Right" HorizontalAlignment="Right" DropDownOpened="DatabaseNameEntries_DropDownOpened"  Width="250" Height="25" IsEditable="True" ItemsSource="{Binding Path=DatabaseNameEntries}"  Text="{Binding DatabaseName, UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="DatabaseName" SelectedValuePath="DatabaseName" TabIndex="6"  ></ComboBox>
+                <TextBlock DockPanel.Dock="Left" HorizontalAlignment="Left" FontFamily="{DynamicResource ContentFontFamily}" VerticalAlignment="Center" FontSize="{DynamicResource ContentFontSize}" IsEnabled="{Binding PasswordEnabled}"  Text="{Binding SelectEnterDatabaseText}" TextWrapping="Wrap" />
+            </DockPanel>
+            <DockPanel DockPanel.Dock="Top" Margin="0,10,0,0"  LastChildFill="False" >
+                <Button Command="{Binding TestConnectionCommand}" IsEnabled="{Binding TestConnectionButtonEnabled}" Padding="5,0,5,0" Content="{Binding TestConnectionText}" DockPanel.Dock="Right"  MinWidth="120" Height="25" TabIndex="8" />
+                <Button Command="{Binding CreateDatabaseCommand}" IsEnabled="{Binding CreateDatabaseButtonEnabled}" Visibility="{Binding CreateDatabaseVisibility}" Padding="5,0,5,0" MinWidth="120" Height="25" Content="{Binding CreateDatabaseText}" DockPanel.Dock="Right"  Margin="0,0,10,0" TabIndex="7"/>
+            </DockPanel>
+            
+            <Separator Style="{DynamicResource BaseSeparator}" DockPanel.Dock="Bottom" Margin="0, 20, 0, 20"  Background="{DynamicResource AccentColorBrush}" Opacity="0.5" />
+           
+        </DockPanel>
+    </Grid>
+</UserControl>

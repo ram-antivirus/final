@@ -1,0 +1,41 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             xmlns:Custom="http://metro.mahapps.com/winfx/xaml/controls" x:Class="Antivirus.Pages.safe"
+             mc:Ignorable="d" Width="720.956" Height="495.06">
+    <Grid HorizontalAlignment="Left" Height="495" VerticalAlignment="Top" Width="721">
+        <Rectangle HorizontalAlignment="Left" Height="54" Margin="101,10,0,0" VerticalAlignment="Top" Width="72">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="../Images/ds.jpg"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <TextBlock HorizontalAlignment="Left" Margin="187,12,0,0" TextWrapping="Wrap" Text="Safe Surfing" VerticalAlignment="Top" Width="373" Height="49" FontSize="36" FontWeight="Bold" Foreground="#FF007ACC"/>
+        <TextBlock HorizontalAlignment="Left" TextAlignment="Justify" Margin="101,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="580" Height="243" RenderTransformOrigin="0.488,0.497" Foreground="black" FontSize="16"><Run Text="Do you use search engines, such as Google, Yahoo! or Bing? Do you pay your bills online? Do you like surfing with free Wi-Fi? Do you like online shopping or reading online news?"/><LineBreak/><Run/><LineBreak/><Run Text="If "/><Run Language="en-in" Text="any of "/><Run Text="you"/><Run Language="en-in" Text="r answers are "/><Run Text="&quot;yes&quot; to any of these questions, there's a "/><Run Language="en-in" Text="heavy"/><Run Text=" risk that your computer, phone or tablet has been exposed to malicious software or that your online behaviour "/><Run Language="en-in" Text="is "/><Run Text="be"/><Run Language="en-in" Text="ing"/><Run Text=" "/><Run Language="en-in" Text="monitored "/><Run Text="by companies that collect and sell "/><Run Language="en-in" Text="such"/><Run Text=" information."/><LineBreak/><Run/><LineBreak/><Run Text="This probably sounds like bad news, but don't worry - there's still"/><Run Language="en-in" Text=" a"/><Run Text=" hope! choose one of the below icon and start surfing safely today."/></TextBlock>
+        <Custom:Tile  HorizontalAlignment="Left" Margin="163,350,0,0" VerticalAlignment="Top" Height="58" Width="70" Click="Tile_Click">
+            <Custom:Tile.Background>
+                <ImageBrush ImageSource="/Antivirus;component/Images/chrome.ico"/>
+            </Custom:Tile.Background>
+        </Custom:Tile>
+        <Custom:Tile  HorizontalAlignment="Left" Margin="310,350,0,0" VerticalAlignment="Top" Height="58" Width="68" Click="Tile_Click_1">
+            <Custom:Tile.Background>
+                <ImageBrush ImageSource="/Antivirus;component/Images/firefox.png"/>
+            </Custom:Tile.Background>
+        </Custom:Tile>
+        <Custom:Tile  HorizontalAlignment="Left" Margin="476,350,0,0" VerticalAlignment="Top" Width="68" Height="58" Click="Tile_Click_2">
+            <Custom:Tile.Background>
+                <ImageBrush ImageSource="/Antivirus;component/Images/internet_explorer-512.png"/>
+            </Custom:Tile.Background>
+        </Custom:Tile>
+        <TextBlock FontStyle="Italic" HorizontalAlignment="Right" Margin="0,417,408,0" TextWrapping="Wrap" Text="Let's Get Secured" VerticalAlignment="Top" Height="33" Width="212" Foreground="#FF007ACC" FontWeight="Bold" FontSize="16"/>
+
+        <Rectangle HorizontalAlignment="Left"  Height="37"  Width="39" Margin="39,407,0,0" VerticalAlignment="Top"  RenderTransformOrigin="1.183,0.629">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/Antivirus;component/Images/yippee 2.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
+    </Grid>
+
+</UserControl>

@@ -1,0 +1,73 @@
+﻿<UserControl x:Class="Antivirus.Pages.Report"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             mc:Ignorable="d" 
+             d:DesignWidth="720.956" Height="495.06" Loaded="UserControl_Loaded" >
+    <Grid HorizontalAlignment="Left" Height="495" VerticalAlignment="Top" Width="721">
+        <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Report" VerticalAlignment="Top" Width="121" Height="45" Foreground="#FF007ACC" FontSize="36" FontFamily="Times New Roman"/>
+        <TextBlock HorizontalAlignment="Left" Margin="92,48,0,0" TextWrapping="Wrap" Text="Firewall" VerticalAlignment="Top" Width="80" Height="23" FontSize="16" FontFamily="Times New Roman" Foreground="#FF554646"/>
+        <TextBlock Name="firetxt" HorizontalAlignment="Left" Margin="297,52,0,0" TextWrapping="Wrap" Text="OFF" VerticalAlignment="Top" Width="94" Height="21" FontFamily="Times New Roman" FontSize="14" Foreground="#FFDE0B0B"/>
+        <TextBlock HorizontalAlignment="Left" Margin="92,97,0,0" TextWrapping="Wrap" Text="Realtime Scan" VerticalAlignment="Top" Width="111" Height="23" FontSize="16" FontFamily="Times New Roman" Foreground="#FF554646"/>
+        <TextBlock Name="realtxt" HorizontalAlignment="Left" Margin="297,99,0,0" TextWrapping="Wrap" Text="OFF" VerticalAlignment="Top" Width="94" Height="21" FontFamily="Times New Roman" FontSize="14" Foreground="#FFDE0B0B"/>
+        <TextBlock HorizontalAlignment="Left" Margin="92,146,0,0" TextWrapping="Wrap" Text="Anti-phishing" VerticalAlignment="Top" Width="111" Height="23" FontSize="16" FontFamily="Times New Roman" Foreground="#FF554646"/>
+        <TextBlock Name="antifishtxt" HorizontalAlignment="Left" Margin="297,146,0,0" TextWrapping="Wrap" Text="OFF" VerticalAlignment="Top" Width="59" Height="23" FontFamily="Times New Roman" FontSize="14" Foreground="#FFDE0B0B"/>
+        <TextBlock HorizontalAlignment="Left" Margin="92,194,0,0" TextWrapping="Wrap" Text="Ransomeware" VerticalAlignment="Top" Width="111" Height="23" FontSize="16" FontFamily="Times New Roman" Foreground="#FF554646"/>
+        <TextBlock Name="Randtxt" HorizontalAlignment="Left" Margin="297,196,0,0" TextWrapping="Wrap" Text="OFF" VerticalAlignment="Top" Width="94" Height="21" FontFamily="Times New Roman" FontSize="14" Foreground="#FFDE0B0B"/>
+        <TextBlock HorizontalAlignment="Left" Margin="92,247,0,0" TextWrapping="Wrap" Text="Database" VerticalAlignment="Top" Width="111" Height="23" FontSize="16" FontFamily="Times New Roman" Foreground="#FF554646"/>
+        <TextBlock Name="dbupdatetxt" HorizontalAlignment="Left" Margin="297,247,0,0" TextWrapping="Wrap" Text="Requires update" VerticalAlignment="Top" Width="94" Height="21" FontFamily="Times New Roman" FontSize="14" Foreground="#FFDE0B0B"/>
+        <TextBlock HorizontalAlignment="Left" Margin="79,300,0,0" TextWrapping="Wrap" Text="Junks and temp files" VerticalAlignment="Top" Width="152" Height="23" FontSize="16" FontFamily="Times New Roman" Foreground="#FF554646"/>
+        <TextBlock Name="junktxt" HorizontalAlignment="Left" Margin="297,302,0,0" TextWrapping="Wrap" Text="Need cleanup" VerticalAlignment="Top" Width="121" Height="21" FontFamily="Times New Roman" FontSize="14" Foreground="#FFDE0B0B"/>
+        <Button Content="Fix now" Name="btnfire" HorizontalAlignment="Left" Margin="448,43,0,0" VerticalAlignment="Top" Width="75" Height="32" Background="{x:Null}" Foreground="#FF444647" FontWeight="Bold" Click="Button_Click"/>
+        <Button Content="Fix now" Name="btnreal" HorizontalAlignment="Left" Margin="448,91,0,0" VerticalAlignment="Top" Width="75" Height="32" Background="{x:Null}" Foreground="#FF444647" FontWeight="Bold" Click="Button_Click_1"/>
+        <Button Content="Fix now" Name="btnAnti" HorizontalAlignment="Left" Margin="448,139,0,0" VerticalAlignment="Top" Width="75" Height="32" Background="{x:Null}" Foreground="#FF444647" FontWeight="Bold" Click="Button_Click_2"/>
+        <Button Content="Fix now" Name="btnRand" HorizontalAlignment="Left" Margin="448,188,0,0" VerticalAlignment="Top" Width="75" Height="32" Background="{x:Null}" Foreground="#FF444647" FontWeight="Bold" Click="Button_Click_3"/>
+        <Button Content="Fix now" Name="btnJunk" HorizontalAlignment="Left" Margin="448,293,0,0" VerticalAlignment="Top" Width="75" Height="32" Background="{x:Null}" Foreground="#FF444647" FontWeight="Bold" RenderTransformOrigin="0.423,0.406" Click="Button_Click_5"/>
+        <Button Content="Fix now" Name="btnDB" HorizontalAlignment="Left" Margin="448,239,0,0" VerticalAlignment="Top" Width="75" Height="32" Background="{x:Null}" Foreground="#FF444647" FontWeight="Bold" Click="Button_Click_4"/>
+      
+        <TextBlock HorizontalAlignment="Left" Margin="610,50,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="83" Height="22" Grid.Column="1" Foreground="#FF007ACC">
+        <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" Foreground="black"
+               NavigateUri="https://ramantivirus.com/secured-network-firewall/">Learn more</Hyperlink>
+        </TextBlock>
+
+        <TextBlock HorizontalAlignment="Left" Margin="610,99,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="83" Height="22" Grid.Column="1" Foreground="#FF007ACC">
+        <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" Foreground="black"
+               NavigateUri="https://ramantivirus.com/best-security-real-time-scan/">Learn more</Hyperlink>
+        </TextBlock>
+
+        <TextBlock HorizontalAlignment="Left" Margin="610,148,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="83" Height="22" Grid.Column="1" Foreground="#FF007ACC">
+        <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" Foreground="black"
+               NavigateUri="https://ramantivirus.com/anti-phishing-ram-antivirus/">Learn more</Hyperlink>
+        </TextBlock>
+
+
+
+
+        <TextBlock HorizontalAlignment="Left" Margin="610,194,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="83" Height="22" Grid.Column="1" Foreground="#FF007ACC">
+        <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" Foreground="black"
+               NavigateUri="https://ramantivirus.com/tips-prevent-ransomware/">Learn more</Hyperlink>
+        </TextBlock>
+
+     
+        <TextBlock HorizontalAlignment="Left" Margin="40,431,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="229" Height="20" Foreground="#FF4A4C4D" TextDecorations="Underline">
+        <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" Foreground="black"
+               NavigateUri=" http://ramantivirus.com/shop/">If you face any problem please click here</Hyperlink>
+        </TextBlock>
+
+
+       
+        <TextBlock HorizontalAlignment="Left" Margin="571,431,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="111" Height="20" Foreground="#FF4A4C4D" TextDecorations="Underline">
+        <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" Foreground="black"
+               NavigateUri="https://ramantivirus.com/get-feedback/">Leave Feedback</Hyperlink>
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="610,246,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="83" Height="22" Foreground="#FF007ACC"><Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                NavigateUri="https://ramantivirus.com/backup-your-data/"><Run Text="Learn more" Foreground="black"/></Hyperlink></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="610,300,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="83" Height="22" Foreground="#FF007ACC"><Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                NavigateUri="https://ramantivirus.com/how-to-make-your-computer-run-faster/"><Run Text="Learn more" Foreground="black"/></Hyperlink></TextBlock>
+
+
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,230 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             xmlns:Custom="http://metro.mahapps.com/winfx/xaml/controls" xmlns:pages="clr-namespace:Antivirus.Pages" d:DataContext="{d:DesignInstance Type=pages:CleanEntry}" x:Class="Antivirus.Pages.scan"
+             mc:Ignorable="d"  Width="783.643" Height="495.06">
+    <Grid Margin="0,0,10,0" >
+        <Custom:MetroTabControl HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.176,-1.185" Height="426" Width="668" Custom:TabControlHelper.IsUnderlined="True">
+            <TabItem x:Name="CustomScanTab" Header="CUSTOM SCAN" Margin="19,242,-16,-242" FontWeight="Bold" Background="{x:Null}" Foreground="#FFB01F1F" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Custom:ControlsHelper.HeaderFontSize="18" Custom:ControlsHelper.HeaderFontWeight="Black">
+                <Grid Margin="-15,-16,-108,46">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="104*"/>
+                        <ColumnDefinition Width="172*"/>
+                        <ColumnDefinition Width="66*"/>
+                        <ColumnDefinition Width="189*"/>
+                        <ColumnDefinition Width="19*"/>
+                        <ColumnDefinition Width="121*"/>
+                    </Grid.ColumnDefinitions>
+                    <Custom:MetroProgressBar x:Name="CustomScanProgressBar" Margin="10,35,40.44,0" VerticalAlignment="Top" Height="9" IsIndeterminate="True" BorderThickness="2"  RenderTransformOrigin="0.505,0.924" Foreground="#FF007ACC" Grid.ColumnSpan="6"/>
+                    <Button Content="Browse" Name="browseButton"  BorderThickness="0" HorizontalAlignment="Left" Margin="117.598,49,0,0" VerticalAlignment="Top" Width="104" Height="31" Click="browseButton_Click" Background="#FF007ACC" Grid.Column="3" RenderTransformOrigin="0.441,0.519" Foreground="#FFFFFBFB"/>
+                    <Button Content="Scan" Name="customscan"  BorderThickness="0" HorizontalAlignment="Left" Margin="20.598,49,0,0" VerticalAlignment="Top" Width="104" RenderTransformOrigin="0.319,0.017" Height="31"  Background="#FF007ACC" Grid.Column="4"  Click="Custom_Scan" Foreground="#FFFBF7F7" Grid.ColumnSpan="2" />
+                    <Button x:Name="customcancel" Content=""   BorderThickness="0" HorizontalAlignment="Left" Margin="72.2,0,0,331" VerticalAlignment="Bottom" Width="30" Height="26" Grid.Column="5" Foreground="#FFFDFAFA" FontWeight="Bold"  Click="Custom_Cancel"  >
+                        <Button.Background>
+                            <ImageBrush ImageSource="/Antivirus;component/Images/crossmark1.jpg"/>
+                        </Button.Background>
+                    </Button>
+                    <Button Content="||" Name="custompause"  Click="Custom_Pause"  BorderThickness="0" HorizontalAlignment="Left" Margin="30.2,4,0,0" VerticalAlignment="Top" Width="30" RenderTransformOrigin="0.319,0.017" Height="26"  Background="#FF007ACC" Grid.Column="5" Foreground="#FFF9F2F2"/>
+                    <ListView x:Name="CustomDefectedItemsList" Foreground="Gray" BorderThickness="1" Background="Transparent" HorizontalAlignment="Left"  Height="220" Margin="72.401,90,0,0" VerticalAlignment="Top" Width="556" Grid.ColumnSpan="5" Grid.Column="1" SelectionChanged="CustomDefectedItemsList_SelectionChanged" >
+
+                        <!--<ListView.Resources>
+                                <Style TargetType="ListViewItem" BasedOn="{StaticResource {x:Type ListBoxItem}}">
+                                    <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
+                                    <Style.Triggers>
+                                        <Trigger Property="Content" Value="Low">
+                                            <Setter Property="Foreground" Value="White" />
+                                        </Trigger>
+                                        <Trigger Property="Content" Value="Medium">
+                                            <Setter Property="Foreground" Value="White" />
+                                        </Trigger>
+                                        <Trigger Property="Content" Value="High">
+                                            <Setter Property="Foreground" Value="White" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ListView.Resources>-->
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Path" Width="400" TextBlock.Foreground="Red" >
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <CheckBox Content="{Binding File_Path}" IsChecked="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListBoxItem}}, Path=IsSelected}" />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Type" Width="400" TextBlock.Foreground="Red">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Virus_Type}" Foreground="Red" />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+
+                    </ListView>
+                    <Label x:Name="CustomCurrentPath" x:FieldModifier="public" Content="Label" HorizontalAlignment="Left" Margin="72.401,0,0,0" VerticalAlignment="Top" Width="453" Foreground="#FF7B7E80" Height="30" Grid.ColumnSpan="4" Grid.Column="1"/>
+                    <CheckBox Content="Select all" Name="Cchkselall" HorizontalAlignment="Left" Margin="72.401,62,0,0" VerticalAlignment="Top" Width="102" Foreground="#FF7B7E80"  RenderTransformOrigin="0.534,1.368" Grid.Column="1"  Checked="Cchkselall_Checked" Unchecked="Cchkselall_Unchecked"  />
+                    <Button Content="Delete" x:Name="customdelete" IsEnabled="True"  BorderThickness="0" HorizontalAlignment="Right" Margin="0,323,1.402,0" VerticalAlignment="Top" Width="104" RenderTransformOrigin="0.319,0.017" Height="31"   Background="#FF007ACC" Grid.Column="3"  Click="Custom_Delete" Foreground="#FFF3EFEF"  />
+                    <Button Content="Quarantine" IsEnabled="True"  Name="Cqurantile"  BorderThickness="0" HorizontalAlignment="Left" Margin="68.401,323,0,0" VerticalAlignment="Top" Width="104" Height="31"  Background="#FF007ACC" Grid.Column="2"   Click="Cqurantile_Click" Foreground="#FFFBF8F8" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2"/>
+                    <Button Name="viewReport" IsEnabled="True" Content="View Report" Grid.Column="4" HorizontalAlignment="Left" Margin="21.598,323,0,0" VerticalAlignment="Top" Width="103" Height="31" Background="#FF007ACC" Foreground="#FFFBF9F9" Click="viewReport_Click" Grid.ColumnSpan="2"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="FullScanTab" Header="FULL SCAN" Margin="-111,187,111,-186" HorizontalAlignment="Right" Width="110" FontWeight="Bold" Background="{x:Null}" Foreground="#FF007ACC" Custom:ControlsHelper.HeaderFontSize="18" Custom:ControlsHelper.HeaderFontWeight="Black">
+                <Grid Margin="-15,-16,-107,46">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="104*"/>
+                        <ColumnDefinition Width="172*"/>
+                        <ColumnDefinition Width="66*"/>
+                        <ColumnDefinition Width="189*"/>
+                        <ColumnDefinition Width="19*"/>
+                        <ColumnDefinition Width="121*"/>
+                    </Grid.ColumnDefinitions>
+                    <Custom:MetroProgressBar x:Name="FullScanProgressBar" Margin="19,35,8.548,0" VerticalAlignment="Top" Height="7" IsIndeterminate="True" BorderThickness="2"  RenderTransformOrigin="0.505,0.924" Foreground="#FF007ACC" Grid.ColumnSpan="6"/>
+                    <Button x:Name="fullscan" Content="Scan"  BorderThickness="0" HorizontalAlignment="Left" Margin="21,49,0,0" VerticalAlignment="Top" Width="104" RenderTransformOrigin="0.319,0.017" Height="31"  Background="#FF007ACC" Grid.Column="4" Click="Full_Scan" Foreground="#FFF7F4F4" FontWeight="Bold" Grid.ColumnSpan="2"/>
+
+                    <Button x:Name="fullcancel" Content=""   BorderThickness="0" HorizontalAlignment="Left" Margin="73,4,0,0" VerticalAlignment="Top" Width="30" Height="26" Grid.Column="5" Foreground="#FFFDFAFA" FontWeight="Bold" Click="fullcancel_Click">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/Antivirus;component/Images/crossmark1.jpg"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="fullpause" Content="||"  BorderThickness="0" HorizontalAlignment="Left" Margin="31,0,0,331" VerticalAlignment="Bottom" Width="30" RenderTransformOrigin="0.319,0.017" Height="26"  Background="#FF007ACC" Grid.Column="5" Click="Full_Pause" Foreground="#FFF3EFEF"/>
+                    <ListView x:Name="FullScanDefectedList" Foreground="Gray" BorderThickness="1" Background="Transparent" HorizontalAlignment="Left"  Height="220" Margin="72.401,90,0,0" VerticalAlignment="Top" Width="556" Grid.ColumnSpan="5" Grid.Column="1" SelectionChanged="CustomDefectedItemsList_SelectionChanged" >
+
+                        <!--<ListView.Resources>
+                                <Style TargetType="ListViewItem" BasedOn="{StaticResource {x:Type ListBoxItem}}">
+                                    <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
+                                    <Style.Triggers>
+                                        <Trigger Property="Content" Value="Low">
+                                            <Setter Property="Foreground" Value="White" />
+                                        </Trigger>
+                                        <Trigger Property="Content" Value="Medium">
+                                            <Setter Property="Foreground" Value="White" />
+                                        </Trigger>
+                                        <Trigger Property="Content" Value="High">
+                                            <Setter Property="Foreground" Value="White" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ListView.Resources>-->
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Path" Width="400" TextBlock.Foreground="Red" >
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <CheckBox Content="{Binding File_Path}" IsChecked="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListBoxItem}}, Path=IsSelected}" />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Type" Width="400" TextBlock.Foreground="Red">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Virus_Type}" Foreground="Red" />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+
+                    </ListView>
+                    <CheckBox Content="Select all" Name="Fchkselall" HorizontalAlignment="Left" Margin="73,62,0,0" VerticalAlignment="Top" Width="102" Foreground="#FF7B7E80"  RenderTransformOrigin="0.534,1.368" Grid.Column="1" Checked="Fchkselall_Checked" Unchecked="Fchkselall_Unchecked"/>
+                    <Label x:Name="fullscancurrentpath" Content="Label"  HorizontalAlignment="Left" Margin="73,0,0,0" VerticalAlignment="Top" Width="474" Foreground="#FF7B7E80" Height="36" Grid.ColumnSpan="5" Grid.Column="1"/>
+                    <Button x:Name="fullscandelete" IsEnabled="True" Content="Delete"  BorderThickness="0" HorizontalAlignment="Right" Margin="0,323,1,0" VerticalAlignment="Top" Width="104" RenderTransformOrigin="0.319,0.017" Height="31"   Background="#FF007ACC" Grid.Column="3" Click="Full_Delete" Foreground="#FFFBFBFB" />
+                    <Button Content="Quarantine" IsEnabled="True"  Name="Fqurantile"  BorderThickness="0" HorizontalAlignment="Left" Margin="69,323,0,0" VerticalAlignment="Top" Width="104" Height="31"  Background="#FF007ACC" Grid.Column="2" Click="Fqurantile_Click" Foreground="#FFF9F8F8" RenderTransformOrigin="0.46,-1.24" Grid.ColumnSpan="2"/>
+                    <Rectangle HorizontalAlignment="Left" Height="36" Margin="19,366,0,0" VerticalAlignment="Top" Width="57">
+                        <Rectangle.Fill>
+                            <ImageBrush ImageSource="/Antivirus;component/Images/shildlogo.png"/>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <TextBlock Grid.Column="3" HorizontalAlignment="Left" Margin="157,375,0,0" TextWrapping="Wrap" Text="Total time" VerticalAlignment="Top" Height="27" Width="105" FontSize="14" FontWeight="Bold" Grid.ColumnSpan="3"/>
+                    <TextBlock Grid.Column="5" HorizontalAlignment="Left" Margin="34,375,0,0" TextWrapping="Wrap" Text="00:00:00" VerticalAlignment="Top" FontSize="14" Height="21" Width="77"/>
+                    <Button Content="View Report" IsEnabled="True" Name="viewReportf" Visibility="Visible" Grid.Column="5" HorizontalAlignment="Left" Margin="0,323,0,0" VerticalAlignment="Top" Width="103" Height="31" Background="#FF007ACC" Foreground="#FFFBF9F9" Click="Button_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="QuickScanTab"  Background="{x:Null}" Header="QUICK SCAN" Foreground="#FFF98431" FontWeight="Bold" Margin="-224,134,224,-134" HorizontalAlignment="Right" Width="123" Height="35" VerticalAlignment="Top" Custom:ControlsHelper.HeaderFontSize="18" Custom:ControlsHelper.HeaderFontWeight="Black" Custom:ControlsHelper.HeaderMargin="0">
+                <Grid Margin="-15,-16,-107,46">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="104*"/>
+                        <ColumnDefinition Width="172*"/>
+                        <ColumnDefinition Width="66*"/>
+                        <ColumnDefinition Width="189*"/>
+                        <ColumnDefinition Width="19*"/>
+                        <ColumnDefinition Width="121*"/>
+                    </Grid.ColumnDefinitions>
+                    <Custom:MetroProgressBar x:Name="QuickScanProgressBar" Margin="30,32,9,0" VerticalAlignment="Top" Height="10" IsIndeterminate="True" BorderThickness="2"  RenderTransformOrigin="0.505,0.924" Foreground="#FF007ACC" Grid.ColumnSpan="6"/>
+                    <Button x:Name="quickscan" Content="Scan"  BorderThickness="0" HorizontalAlignment="Left" Margin="21,49,0,0" VerticalAlignment="Top" Width="104" RenderTransformOrigin="0.319,0.017" Height="31"  Background="#FF007ACC" Grid.Column="4" Click="Quick_Scan" Foreground="#FFF5F4F4" FontWeight="Bold" Grid.ColumnSpan="2"></Button>
+                    <Button x:Name="quickcancel" Content=""  BorderThickness="0" HorizontalAlignment="Left" Margin="73,4,0,0" VerticalAlignment="Top" Width="30" Height="26" Grid.Column="5" Foreground="#FFFDFAFA" FontWeight="Bold" Click="quickcancel_Click" RenderTransformOrigin="0.5,0.5"  >
+                        <Button.Background>
+                            <ImageBrush ImageSource="/Antivirus;component/Images/crossmark1.jpg"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="quickpause" Content="||"  BorderThickness="0" HorizontalAlignment="Left" Margin="31,4,0,0" VerticalAlignment="Top" Width="30" RenderTransformOrigin="0.319,0.017" Height="26"  Background="#FF007ACC" Grid.Column="5" Click="Quick_Pause" Foreground="#FFFBF8F8" FontWeight="Bold" />
+                    <ListView x:Name="QuickDefectedList" Foreground="Gray" BorderThickness="1" Background="Transparent" HorizontalAlignment="Left"  Height="220" Margin="72.401,90,0,0" VerticalAlignment="Top" Width="556" Grid.ColumnSpan="5" Grid.Column="1" SelectionChanged="CustomDefectedItemsList_SelectionChanged" >
+
+                        <!--<ListView.Resources>
+                                <Style TargetType="ListViewItem" BasedOn="{StaticResource {x:Type ListBoxItem}}">
+                                    <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
+                                    <Style.Triggers>
+                                        <Trigger Property="Content" Value="Low">
+                                            <Setter Property="Foreground" Value="White" />
+                                        </Trigger>
+                                        <Trigger Property="Content" Value="Medium">
+                                            <Setter Property="Foreground" Value="White" />
+                                        </Trigger>
+                                        <Trigger Property="Content" Value="High">
+                                            <Setter Property="Foreground" Value="White" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ListView.Resources>-->
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Path" Width="400" TextBlock.Foreground="Red" >
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <CheckBox Content="{Binding File_Path}" IsChecked="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListBoxItem}}, Path=IsSelected}" />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Type" Width="400" TextBlock.Foreground="Red">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Virus_Type}" Foreground="Red" />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+
+                    </ListView>
+                    <Label x:Name="QuickCurrentPath" Content="Label"  HorizontalAlignment="Left" Margin="73,0,0,0" VerticalAlignment="Top" Width="484" Foreground="#FF7B7E80" Height="36" Grid.ColumnSpan="5" Grid.Column="1"/>
+                    <Button x:Name="quickdelete" IsEnabled="True" Content="Delete"   BorderThickness="0" HorizontalAlignment="Right" Margin="0,323,1,0" VerticalAlignment="Top" Width="104" RenderTransformOrigin="0.319,0.017" Height="31"   Background="#FF007ACC" Grid.Column="3" Click="Quick_Delete" Foreground="#FFFFF8F8" FontWeight="Bold" />
+                    <Button Content="Quarantine" IsEnabled="True"  Name="QbtnSelall"   Click="QbtnSelall_Click"  BorderThickness="0" HorizontalAlignment="Left" Margin="69,323,0,0" VerticalAlignment="Top" Width="104" Height="31"  Background="#FF007ACC" Grid.Column="2" Foreground="#FFFDFAFA" FontWeight="Bold" Grid.ColumnSpan="2"/>
+                    <CheckBox Content="Select all" Name="Qqrantile" HorizontalAlignment="Left" Margin="73,62,0,0" VerticalAlignment="Top" Width="102" Foreground="#FF7B7E80"  RenderTransformOrigin="0.534,1.368" Grid.Column="1" Checked="Qchkselall_Checked" Unchecked="Qchkselall_Unchecked" FontWeight="Bold"/>
+                    <Button Content="View Report" IsEnabled="True" Name="viewReportq" Visibility="Visible" Grid.Column="5" HorizontalAlignment="Left" Margin="0,323,0,0" VerticalAlignment="Top" Width="103" Background="#FF007ACC" Foreground="#FFF9F8F8" Click="viewReportq_Click" Height="31"/>
+                </Grid>
+            </TabItem>
+        </Custom:MetroTabControl>
+        <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="PC Scanning" VerticalAlignment="Top" Width="168" Height="32" Foreground="#FF007ACC" FontSize="22" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="430,9,0,0" TextWrapping="Wrap" Text="Total Issues found" VerticalAlignment="Top" Foreground="#FF7B7E80" FontSize="14" FontWeight="Bold" Width="128"/>
+        <TextBlock Name="txtissues" HorizontalAlignment="Left" Margin="558,11,0,0" TextWrapping="Wrap" Text="000" VerticalAlignment="Top" Width="75" Height="21" Foreground="#FF7B7E80" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="315,414,0,0" TextWrapping="Wrap" Text="Total files scanned" VerticalAlignment="Top" Height="22" Width="123" FontSize="14" FontWeight="Bold" Foreground="#FF7B7E80"/>
+        <TextBlock Name="totFiles" HorizontalAlignment="Left" Margin="443,414,0,0" TextWrapping="Wrap" Text="0000" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Foreground="#FF7B7E80"/>
+        <TextBlock HorizontalAlignment="Left" Margin="501,414,0,0" TextWrapping="Wrap" Text="Total time elapsed" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Foreground="#FF7B7E80"/>
+        <TextBlock Name="timeTot" HorizontalAlignment="Left" Margin="641,414,0,0" TextWrapping="Wrap" Text="00:00:00" VerticalAlignment="Top" Width="60" FontSize="14" FontWeight="Bold" Foreground="#FF7B7E80"/>
+        <Rectangle HorizontalAlignment="Left" Height="37"  Width="39"  Margin="52,409,0,0" VerticalAlignment="Top" >
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/Antivirus;component/Images/yippee 2.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <TextBlock FontStyle="Italic" HorizontalAlignment="Left" Margin="108,414,0,0" TextWrapping="Wrap" Text="Let's Get Secured" VerticalAlignment="Top" Width="186" Height="26" Foreground="#FF007ACC" FontSize="16" FontWeight="Bold"/>
+
+        <Custom:Tile Content="Tile" HorizontalAlignment="Left" Margin="944,212,-200,0" VerticalAlignment="Top" Height="23" Width="30"/>
+
+    </Grid>
+</UserControl>

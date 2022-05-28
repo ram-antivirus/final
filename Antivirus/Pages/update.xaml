@@ -1,0 +1,36 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:Custom="http://metro.mahapps.com/winfx/xaml/controls" x:Class="Antivirus.Pages.update" 
+             mc:Ignorable="d"  Width="720.956" Height="495.06">
+    <Grid>
+        <Button x:Name="StartButton" Content="Start Update"  HorizontalAlignment="Left" Background="#FF007ACC"  Margin="62,324,0,0" VerticalAlignment="Top" Width="130" Height="40" Click="Button_Click_1" Foreground="White" FontWeight="Bold"/>
+        <Button x:Name="CancelButton"  Content="Cancel"  HorizontalAlignment="Left" Background="#FF007ACC" Margin="540,324,0,0" VerticalAlignment="Top" Width="139" Height="40" Foreground="White" Click="Button_Click_2" FontWeight="Bold"/>
+
+
+
+        <TextBlock HorizontalAlignment="Left" Margin="82,199,0,0" TextWrapping="Wrap" Text="Current Version:  " VerticalAlignment="Top" Height="24" Width="137" Foreground="#FF595B5D" FontSize="18" FontWeight="Bold"/>
+        <TextBlock Name="version" HorizontalAlignment="Left" Margin="227,199,0,0" TextWrapping="Wrap" Text="1.0.0" VerticalAlignment="Top" Width="87" Height="24" FontSize="18" Foreground="#FF595B5D"/>
+        <Rectangle HorizontalAlignment="Left" Height="63" VerticalAlignment="Top" Width="89" RenderTransformOrigin="0.458,0.081">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="../Images/updte.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <TextBlock HorizontalAlignment="Left" Margin="152,10,0,0" TextWrapping="Wrap" Text="Updating database and application module " VerticalAlignment="Top" Height="35" Width="382" Foreground="#FF007ACC" FontSize="18" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="492,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="24" Width="207" Foreground="#FF595B5D" FontSize="18"><Run Language="en-in" Text="RAM "/><Run Text="Antivirus update server"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="82,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="597" Height="106" Foreground="#FF595B5D" FontSize="16" TextAlignment="Justify"><Run Text="By default "/><Run Language="en-in" Text="RAM "/><Run Text="Antivirus regularly update database on server. User should check it for manually to download database. Once database is downloaded, it will automatically install and update the user database to detect harmful viruses."/></TextBlock>
+        <Rectangle HorizontalAlignment="Left" Height="48"  Width="56"  Margin="26,403,0,0" VerticalAlignment="Top" >
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/Antivirus;component/Images/yippee 2.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <TextBlock FontStyle="Italic" HorizontalAlignment="Left" Margin="94,414,0,0" TextWrapping="Wrap" Text="Let's Get Secured" VerticalAlignment="Top" Width="189" Height="26" Foreground="#FF007ACC" FontSize="16" FontWeight="Bold"/>
+        <Label Content="Update Source :" HorizontalAlignment="Left" Margin="341,194,0,0" VerticalAlignment="Top" Width="146" Height="39" FontSize="18" Foreground="#FF595B5D" FontWeight="Bold"/>
+        <Button Content="Offline Update" HorizontalAlignment="Left" Margin="294,324,0,0" VerticalAlignment="Top" Width="130" Height="40" Background="#FF007ACC" Foreground="#FFFBF8F8" FontWeight="Bold" Click="Button_Click_3"/>
+        <Custom:ProgressRing  Name="progress" Visibility="Hidden" Foreground="{DynamicResource AccentColorBrush}" Margin="326,246,335,189"  />
+
+
+    </Grid>
+</UserControl>

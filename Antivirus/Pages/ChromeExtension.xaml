@@ -1,0 +1,99 @@
+﻿<UserControl x:Class="Antivirus.Pages.ChromeExtension"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+              Height="250"
+             Width="420">
+    <UserControl.Resources>
+        <Storyboard x:Key="FadeIn">
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00"
+                                           Storyboard.TargetName="grid"
+                                           Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00"
+                                      Value="0" />
+                <SplineDoubleKeyFrame KeyTime="00:00:01"
+                                      Value="0.95" />
+                <SplineDoubleKeyFrame KeyTime="00:00:03"
+                                      Value="0.95" />
+                <!--				<SplineDoubleKeyFrame KeyTime="00:00:05" Value="0"/>-->
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="HighlightCloseButton"/>
+        <Storyboard x:Key="FadeCloseButton"/>
+        <Storyboard x:Key="FadeBack">
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00"
+                                           Storyboard.TargetName="grid"
+                                           Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00"
+                                      Value="1" />
+                <SplineDoubleKeyFrame KeyTime="00:00:00.3000000"
+                                      Value="1" />
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="FadeOut"
+                    Completed="OnFadeOutCompleted">
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00"
+                                           Storyboard.TargetName="grid"
+                                           Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00"
+                                      Value="1" />
+                <SplineDoubleKeyFrame KeyTime="00:00:00.3000000"
+                                      Value="0.2" />
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+    <Grid x:Name="grid"
+          MouseEnter="grid_MouseEnter" Margin="0,0,0,10">
+        <Border HorizontalAlignment="Stretch"
+                Margin="-40,-29,-31,-64"
+                BorderThickness="1,1,1,1"
+                BorderBrush="#FF997137" Background="White">
+            <Border.Effect>
+                <DropShadowEffect Color="#FF58C2FF" />
+            </Border.Effect>
+        </Border>
+        <TextBlock Margin="0,86,34,0"
+                   x:Name="PopupText"
+                   VerticalAlignment="Top"
+                   Foreground="#FF007ACC"
+                   TextWrapping="Wrap" Height="70" HorizontalAlignment="Right" Width="292" FontSize="14" FontWeight="Bold" Text="Would you like to add RAM  Ultimate Antiviruss extension in chrome?"  TextAlignment="Center"/>
+        <Path Fill="#FFFFFFFF"
+              Stretch="Fill"
+              Margin="0,55,0,0"
+              VerticalAlignment="Top"
+              Height="7"
+              Data="M26,107 L220.04123,107"
+              SnapsToDevicePixels="True" Stroke="#FF817E7E"/>
+        <TextBlock Margin="122,15,63,0"
+                   VerticalAlignment="Top"
+                   Name="PopupTitle"
+                   Height="24"
+                   Text="RAM Antivirus"
+                   TextWrapping="Wrap"
+                   Foreground="#FF000000" RenderTransformOrigin="0.5,0.5" FontSize="18" FontWeight="Bold" />
+        <Button  HorizontalAlignment="Left" Margin="342,0,0,0" VerticalAlignment="Top" Width="24" RenderTransformOrigin="1.949,0.376" Height="23" Click="Button_Click_1">
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/Close.png"/>
+            </Button.Background>
+        </Button>
+        <Button Content="Yes" HorizontalAlignment="Left" Background="#FF007ACC" Foreground="White" Height="31" Margin="100,180,0,0" VerticalAlignment="Top" Width="84" Click="Button_Click_2" FontSize="16" FontWeight="Bold"/>
+        <Button Content="Cancel" Background="#FF007ACC" Foreground="white" HorizontalAlignment="Left" Height="30" Margin="235,181,0,0" VerticalAlignment="Top" Width="83" Click="Button_Click" FontSize="16" FontWeight="Bold" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.458"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Rectangle HorizontalAlignment="Left" Height="40" Margin="56,10,0,0"  VerticalAlignment="Top" Width="39">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/Antivirus;component/Images/yippee 2.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
+
+    </Grid>
+</UserControl>

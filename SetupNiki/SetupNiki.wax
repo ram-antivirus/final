@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-16"?>
+<Configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DeployedProjects>
+    <string>Antivirus\Antivirus.csproj</string>
+    <string>WindowsServiceUpdate\WindowsServiceUpdate\WindowsServiceUpdate.csproj</string>
+    <string>ApplicationScanner\ApplicationScanner.csproj</string>
+    <string>NikiUsb\NikiUsb.csproj</string>
+    <string>repeat\repeat.csproj</string>
+    <string>StartupFolderShortcut\StartupFolderShortcut.csproj</string>
+    <string>SystemTray\SystemTray\SystemTray.csproj</string>
+  </DeployedProjects>
+  <DirectoryMappings>
+    <Item Key="" Value="INSTALLFOLDER" />
+    <Item Key="Images" Value="ProgramFilesFolder" />
+  </DirectoryMappings>
+  <FileMappings />
+  <DeploySymbols>false</DeploySymbols>
+  <DeployLocalizations>true</DeployLocalizations>
+  <DeployExternalLocalizations>true</DeployExternalLocalizations>
+  <ExcludedProjectItems>-</ExcludedProjectItems>
+</Configuration>

@@ -1,0 +1,52 @@
+<UserControl x:Class="Visual_NikiK.Ui.InstallWelcomePage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="450"
+             xmlns:XeamDesignTime="clr-namespace:Xeam.VisualInstaller;assembly=Xeam.VisualInstaller"
+             d:DataContext="{d:DesignInstance Type=XeamDesignTime:InstallWelcomePageViewModel, IsDesignTimeCreatable=True}" 
+             >
+    
+    <!-- user control resources are only for design time. Comment in to get a preview of the theme in design mode.
+         if you leave this tag active, the page design is overwritten with resources defined in the page -->
+    <!--<UserControl.Resources>
+        <ResourceDictionary Source="pack://application:,,,/Xeam.Base.UI;component/Themes/Xeam.Theme.xaml" />
+    </UserControl.Resources>-->
+    
+    <Grid  >
+        <DockPanel Margin="20,20,20,20" LastChildFill="True">
+            <TextBlock TextWrapping="Wrap"  DockPanel.Dock="Top" Text="{Binding Title}" Margin="0,10,0,10" FontFamily="{DynamicResource ContentFontFamily}" FontSize="{DynamicResource NormalFontSize}"/>
+            
+            <DockPanel DockPanel.Dock="Bottom" HorizontalAlignment="Right" Margin="0,0,0,0">
+                <Button Command="{Binding NextCommand}" DockPanel.Dock="Right" Content="{Binding NextButtonText}" IsEnabled="{Binding InstallEnabled}" Width="100" Height="25" TabIndex="6" Click="Button_Click_1" />
+                <Button Command="{Binding CancelCommand}" Margin="0,0,10,0" DockPanel.Dock="Right" Content="{Binding ButtonCancelText}"  Width="100" Height="25" TabIndex="5"/>
+            </DockPanel>
+
+            <DockPanel DockPanel.Dock="Bottom" Visibility="{Binding InstallDirVisibility}">
+                <Separator Style="{DynamicResource BaseSeparator}" DockPanel.Dock="Bottom" Margin="0, 10, 0, 20"  Background="{DynamicResource AccentColorBrush}" Opacity="0.5" />
+                <CheckBox DockPanel.Dock="Bottom" Margin="0,20,0,0" IsChecked="{Binding SendFeedbackChecked}" Visibility="{Binding SendFeedbackVisibility}" TabIndex="4" >
+                    <TextBlock Text="{Binding AgreeToSendFeedbackText}" Margin="0,-5,0,0" FontFamily="{DynamicResource ContentFontFamily}" FontSize="{DynamicResource NormalFontSize}"/>
+                </CheckBox>
+                <TextBlock TextWrapping="Wrap"  DockPanel.Dock="Bottom" Text="{Binding PathValidationError}" Visibility="{Binding PathValidationErrorVisibility}" Margin="0,10,0,0" FontFamily="{DynamicResource ContentFontFamily}"/>
+
+                <DockPanel DockPanel.Dock="Bottom" LastChildFill="True" >
+                    <Button DockPanel.Dock="Right" Command="{Binding FolderSelectionDialogCommand}" Content="..."  Style="{DynamicResource SquareButtonStyle}"  TabIndex="3"/>
+                    <TextBox Text="{Binding InstallDir, UpdateSourceTrigger=PropertyChanged}"  FontFamily="{DynamicResource ContentFontFamily}" FontSize="{DynamicResource NormalFontSize}" TabIndex="2" />
+                </DockPanel>
+            </DockPanel>
+            <Separator Style="{DynamicResource BaseSeparator}" DockPanel.Dock="Bottom"  Background="{DynamicResource AccentColorBrush}" Margin="0,10" Opacity="0.5" />
+
+            <CheckBox DockPanel.Dock="Bottom" Margin="0,5,0,0" IsChecked="{Binding AcceptLicenseChecked}" Visibility="{Binding LicenseInfoVisibility}" TabIndex="1" >
+                <!--<TextBlock Text="{Binding Test}" Margin="0,-5,0,0" FontFamily="{DynamicResource ContentFontFamily}" FontSize="{DynamicResource NormalFontSize}"/>-->
+                <TextBlock Text="{Binding AgreeToLicenseText}" Margin="0,-5,0,0" FontFamily="{DynamicResource ContentFontFamily}" FontSize="{DynamicResource NormalFontSize}"/>
+            </CheckBox>
+            
+            <ContentControl Content="{Binding LicenseDocument}" Visibility="{Binding LicenseInfoVisibility}" TabIndex="0"/>
+
+        </DockPanel>
+    </Grid>
+</UserControl>
+
+

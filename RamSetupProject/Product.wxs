@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Product Id="*" Name="RamSetupProject" Language="1033" Version="1.0.0.0" Manufacturer="Yippee Technology" UpgradeCode="6d1dd579-66f2-4ca5-8911-2c1c893f55be">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate />
+
+		<Feature Id="ProductFeature" Title="RamSetupProject" Level="1">
+			
+      <!-- heat references -->
+      <ComponentGroupRef Id="RAMWorkerServiceProject" />
+
+      <ComponentGroupRef Id="ProductComponents" />
+		</Feature>
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="INSTALLFOLDER" Name="RamSetupProject" />
+			</Directory>
+		</Directory>
+	</Fragment>
+
+  <Fragment>
+    <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+
+      <!-- service registration -->
+      <Component Id="ProductComponent" >
+        <File Id="JobServiceEXE"
+              Name="RAMWorkerService.exe"
+              DiskId="1"
+              Source="$(var.RAMWorkerService.TargetDir)\RAMWorkerService.exe"
+              Vital="yes"
+              KeyPath="yes" />
+
+        <ServiceInstall Id="ServiceInstaller"
+                        Type="ownProcess"
+                        Vital="yes"
+                        Name="RAMWorkerService"
+                        DisplayName="RAMCloudScan"
+                        Description="RAM Cloud Scan ProcessMonitoring"
+                        Start="auto"
+                        Account="LocalSystem"
+                        ErrorControl="normal" />
+
+        <ServiceControl Id="StartService"
+                        Name="RAMWorkerService"
+                        Start="install"
+                        Wait="no" />
+        <ServiceControl Id="StopService"
+                        Name="RAMWorkerService"
+                        Stop="uninstall"
+                        Remove="uninstall"
+                        Wait="yes" />
+      </Component>
+
+    </ComponentGroup>
+  </Fragment>
+</Wix>

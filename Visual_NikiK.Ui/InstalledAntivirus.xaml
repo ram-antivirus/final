@@ -1,0 +1,35 @@
+<UserControl x:Class="Visual_NikiK.Ui.InstalledAntivirus"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:XeamDesignTime="clr-namespace:Visual_NikiK.Ui"        
+              
+             d:DesignHeight="500" d:DesignWidth="721">
+    <Grid >
+        <DockPanel Margin="20,20,20,10" LastChildFill="True">
+            <TextBlock TextWrapping="Wrap" DockPanel.Dock="Top" Text="Checking Installed Antivirus" Margin="0,10,0,10" FontFamily="{DynamicResource HeaderFontFamily}" FontSize="18"/>
+
+
+            <DockPanel DockPanel.Dock="Bottom" HorizontalAlignment="Right" Margin="0,0,0,0">
+                <Button Content="Next" IsEnabled="False" Name="nxtUninstall" Command="{Binding NextCommand}" DockPanel.Dock="Right"  Width="100" Height="25" TabIndex="4" Click="nxtUninstall_Click" />
+                <Button  Name="btnUninstall" IsEnabled="True" Margin="0,0,10,0" DockPanel.Dock="Right" Content="Uninstall"  Width="100" Height="25" TabIndex="3" Click="Button_Click_2"/>
+                <Button Command="{Binding PreviousCommand}" Margin="0,0,10,0" DockPanel.Dock="Right" Content="Back"  Width="100" Height="25" TabIndex="2" Click="Button_Click"/>
+            </DockPanel>
+            <Separator Style="{DynamicResource BaseSeparator}" DockPanel.Dock="Bottom" Margin="0, 10, 0, 20"  Background="{DynamicResource AccentColorBrush}" Opacity="0.5" />
+
+            <DockPanel DockPanel.Dock="Top" LastChildFill="True" Height="357">
+
+                <ListView Width="543" Name="lstItems" Margin="0,38,0,22" SelectionChanged="lstItems_SelectionChanged" >
+
+                </ListView>
+
+            </DockPanel>
+            <TextBlock x:Name="textBlock" Height="34" Background="LightGray" TextWrapping="Wrap" Text="Note: Before installing the Ram Antivirus software, make sure that no other antivirus software, including expired or trial versions, is installed on your PC." VerticalAlignment="Top" Margin="0,-15,0,-6" Width="660"/>
+
+        </DockPanel>
+        <Button  Name="chkupdate" Content="Click here to check" HorizontalAlignment="Left" Margin="90,73,0,0" VerticalAlignment="Top" Width="541" Height="26" Click="Button_Click_1"/>
+    </Grid>
+
+</UserControl>

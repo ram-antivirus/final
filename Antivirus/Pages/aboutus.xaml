@@ -1,0 +1,23 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             xmlns:Custom="http://metro.mahapps.com/winfx/xaml/controls" x:Class="Antivirus.Pages.accinfo"
+             mc:Ignorable="d"  Width="720.956" Height="495.06">
+    <Grid Margin="0,0,0,10">
+        <TextBlock  FontSize="16" HorizontalAlignment="Left" Margin="10,96,0,168" Foreground="black" TextWrapping ="wrap" Width="701" TextAlignment="Justify"><Run Language="en-in" Text="RAM"/><Run Text="  Ultimate Antivirus is a PC cleaning, Windows based software program. It is extremely easy to use and takes up little space which leads to a prompt installation process. It is a great tool for cleaning "/><Run Language="en-in" Text=" and "/><Run Text="removes unused files, clears up hard disk storage space, detect virus"/><Run Language="en-in" Text="es"/><Run Text=" and remove"/><Run Language="en-in" Text="s"/><Run Text=" it  and allows Windows to operate more smoothly and quickly. It also removes Internet activity traces including browsing history, "/><Run Language="en-in" Text="b"/><Run Text="lock"/><Run Language="en-in" Text="s"/><Run Text=" unwanted sites"/><Run Language="en-in" Text=" and allows to specify t"/><Run Text="ime limit to access Internet. In addition, "/><Run Language="en-in" Text="RAM "/><Run Text="Antivirus"/><Run Language="en-in" Text=" also"/><Run Text=" includes a fully featured registry cleaner which enables you to manage your PC registry or to delete unnecessary data from it for different applications or software programs."/><LineBreak/><Run Text="We"/><Run Language="en-in" Text=" also"/><Run Text=" provide "/><Run Language="en-in" Text="T"/><Run Text="echsupport for antivirus installation."/></TextBlock>
+        <Button Content="Help" HorizontalAlignment="Left" Margin="587,360,0,0" VerticalAlignment="Top" Width="82" Background="#FF007ACC" Foreground="#FFE7EDF7" Click="Button_Click" FontWeight="Bold"/>
+
+        <Custom:Tile  HorizontalAlignment="Left" Margin="0,-14,0,0" VerticalAlignment="Top" Height="89" Width="742" Background="#FF007ACC" Click="Tile_Click">
+            <TextBlock TextWrapping="Wrap" Text="About Us" Width="219" FontSize="24" FontWeight="Bold"/>
+        </Custom:Tile>
+        <Rectangle HorizontalAlignment="Left" Height="65" Margin="77,0,0,0" VerticalAlignment="Top" Width="81">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/Antivirus;component/Images/aboutus.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
+
+    </Grid>
+</UserControl>

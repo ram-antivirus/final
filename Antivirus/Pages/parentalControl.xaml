@@ -1,0 +1,46 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             xmlns:Custom="http://metro.mahapps.com/winfx/xaml/controls" x:Class="Antivirus.Pages.parentalControl"
+             mc:Ignorable="d"  Width="720.956" Height="495.06" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="202*"/>
+        </Grid.RowDefinitions>
+        <Button Name="restrict" Content="Restrict Websites" HorizontalAlignment="Left" Margin="0,80,0,0" VerticalAlignment="Top" Width="214" Click="Button_Click_1" Background="#FF007ACC" Foreground="#FFF9F6F6" BorderBrush="{x:Null}" Height="103" FontSize="12" FontWeight="Bold" Grid.RowSpan="2" MouseEnter="restrict_MouseEnter" MouseLeave="restrict_MouseLeave"/>
+        <Button Name="acess" Content="Restrict Internet Access" HorizontalAlignment="Left" Margin="0,98,0,0" Grid.Row="1" VerticalAlignment="Top" Width="214" Height="103" Background="#FF007ACC" Foreground="#FFF5F0F0" FontSize="12" Click="Button_Click" FontWeight="Bold" MouseEnter="acess_MouseEnter" MouseLeave="acess_MouseLeave"/>
+        <Rectangle HorizontalAlignment="Left" Height="211" Margin="219,80,0,0" VerticalAlignment="Top" Width="492" Stroke="#FF007ACC" Grid.RowSpan="2">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/Antivirus;component/Images/parentalcartoon91.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Grid HorizontalAlignment="Left" Margin="0,206,0,0" Grid.Row="1" VerticalAlignment="Top" Width="711" Height="106" Background="#FF007ACC" >
+            <TextBlock TextWrapping="Wrap" Width="687" Height="96" TextAlignment="Justify" Foreground="White"><Run Text="                                          "/><Run Language="en-in" Text="                         "/><Run Text="   "/><Run FontWeight="Bold" FontSize="16" Text="RAM Parental Control"/><LineBreak/><Run FontWeight="Bold" FontSize="16"/><Run Text="Would you like to have peace of mind that your children are safe to learn? Parental control is a key part of  parent's online safety toolkit and a great first step to help protect your child online, although there is not a one-step solution to stay safe."/><LineBreak/><Run/></TextBlock>
+        </Grid>
+        <Rectangle HorizontalAlignment="Left"  Height="37"  Width="39"  Margin="26,313,0,0" VerticalAlignment="Top" Grid.Row="1" >
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/Antivirus;component/Images/yippee 2.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <TextBlock FontStyle="Italic" HorizontalAlignment="Left" Margin="94,324,0,0" TextWrapping="Wrap" Text="Let's Get Secured" VerticalAlignment="Top" Width="182" Height="26" Foreground="#FF007ACC" FontSize="16" FontWeight="Bold" Grid.Row="1"/>
+
+        <Grid HorizontalAlignment="Left" Height="75" VerticalAlignment="Top" Width="711" Background="#FF007ACC">
+            <Rectangle HorizontalAlignment="Left" Margin="70,10,0,10" Width="119">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="/Antivirus;component/Images/parents.png"
+      />
+                </Rectangle.Fill>
+            </Rectangle>
+            <TextBlock HorizontalAlignment="Left" Margin="231,10,0,0" TextWrapping="Wrap" Text="Parental Control" Foreground="White" VerticalAlignment="Top" Height="55" Width="330" FontSize="36" FontWeight="Bold"/>
+        </Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="521,324,0,0" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" Width="157">
+        <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" Foreground="black"
+               NavigateUri="https://ramantivirus.com/parental-control-important/">What is parental control?</Hyperlink>
+        </TextBlock>
+
+    </Grid>
+</UserControl>

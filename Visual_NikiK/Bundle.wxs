@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:bal="http://schemas.microsoft.com/wix/BalExtension"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
+     xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension"
+     xmlns:vi="http://schemas.visualinstaller.de/VisualInstallerWixExtension">
+ 
+  
+  <Bundle Name="RAM Ultimate Antivirus" Version="1.0.0.0"
+         Manufacturer="Yippee Technology"
+         UpgradeCode="{93D5BADE-6F2B-49E3-BC1F-F13D9E8C209B}"
+         SplashScreenSourceFile="Resources\splash.bmp"
+         IconSourceFile="Resources\icon.ico">
+             
+    
+    <!--<PayloadGroup Id="NetFx452RedistPayload">
+      <Payload Name="redist\NDP452-KB2901907-x86-x64-AllOS-ENU.exe"
+               SourceFile="$(sys.CURRENTDIR)\NDP452-KB2901954-Web.exe"/>
+    </PayloadGroup>-->
+    <!--<Update Location="http://test.laika42.com/UpdateInfo.xml"/>-->
+
+    <!-- Payload, that has to be added to run the boostrapper application -->
+    <BootstrapperApplicationRef Id='ManagedBootstrapperApplicationHost'>
+      <PayloadGroupRef Id='VisualInstallerRuntimeFiles'/>
+    </BootstrapperApplicationRef>
+
+
+    <Variable Name='LICENSESTRING' bal:Overridable='yes' Value=''/>
+    <Variable Name='SQLCONNECTIONSTRING' bal:Overridable='yes' Value=''/>
+    <Variable Name="INSTALLDIR" bal:Overridable='yes' Value='[ProgramFilesFolder]RAM Antivirus'/>
+    
+    <Chain>
+      <PackageGroupRef Id='NetFx452Redist'  />
+     
+
+      <MsiPackage SourceFile="$(var.SetupNiki.TargetPath)" >
+        <vi:ExtendedInstallSize InstallDirProperty='INSTALLFOLDER'  />
+        <MsiProperty Name='INSTALLFOLDER' Value='[INSTALLDIR]'/>
+      </MsiPackage>
+      <!--<ExePackage
+               SourceFile="$(sys.CURRENTDIR)\vc_redist.x64.exe"
+               DetectCondition="(VCREIST_140_x86 &gt;= v14.0.24215)"
+               InstallCommand="/q /ACTION=Install"
+               RepairCommand="/q ACTION=Repair /hideconsole" />-->
+    
+      
+    </Chain>
+  </Bundle>
+</Wix>

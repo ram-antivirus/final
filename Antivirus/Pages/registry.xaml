@@ -1,0 +1,74 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI" 
+            xmlns:Custom="http://metro.mahapps.com/winfx/xaml/controls" x:Class="home.Pages.registry" 
+            mc:Ignorable="d"  Width="720.956" Height="495.06" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" x:Name="wndreg">
+    <Grid Margin="0,4,-13,-10" x:Name="grdcirprocess">
+
+
+        <Grid Margin="0,0,0,-17">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="159*"/>
+                <ColumnDefinition Width="73*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="fixbtn" HorizontalAlignment="Right" Margin="0,351,121,0" VerticalAlignment="Top" Width="110"  BorderThickness="0" Height="33" Background="#FF1081CD" Click="Button_Click_1" Grid.Column="1" >
+                <TextBlock Text="Fix Issues" Style="{StaticResource Heading2}" Width="77" Foreground="White"/>
+            </Button>
+            <Button x:Name="scanbtn" Margin="289,351,104,0" VerticalAlignment="Top" Width="110" Height="33" Background="#FF1081CD" BorderThickness="0" Click="Button_Click_2">
+                <TextBlock Text="Scan Issues" Style="{StaticResource Heading2}" Foreground="White"/>
+            </Button>
+            <ListView x:Name="lstall" DisplayMemberPath="Name" HorizontalAlignment="Left" Height="288" Margin="197,55,0,0" VerticalAlignment="Top" Width="504" BorderThickness="1" Foreground="white" Grid.ColumnSpan="2" SelectionChanged="lstall_SelectionChanged">
+                <ListView.Resources>
+                    <Style TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource {x:Type ListBoxItem}}">
+                        <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
+                        <Style.Triggers>
+                            <Trigger Property="Content" Value="Low">
+                                <Setter Property="Foreground" Value="White" />
+                            </Trigger>
+                            <Trigger Property="Content" Value="Medium">
+                                <Setter Property="Foreground" Value="White" />
+                            </Trigger>
+                            <Trigger Property="Content" Value="High">
+                                <Setter Property="Foreground" Value="White" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListView.Resources>
+
+            </ListView>
+            <TextBlock HorizontalAlignment="Right" Margin="0,89,338,0" TextWrapping="Wrap" Text="Empty Registry" FontWeight="Bold" VerticalAlignment="Top" Width="122" Height="28" Foreground="#FF007ACC"/>
+            <TextBlock HorizontalAlignment="Left" Margin="43,134,0,0" TextWrapping="Wrap" Text="MRU" FontWeight="Bold" VerticalAlignment="Top" Width="102" Height="23" Foreground="#FF007ACC"/>
+            <TextBlock HorizontalAlignment="Left" Margin="43,172,0,0" TextWrapping="Wrap" Text="File Extensions" FontWeight="Bold" VerticalAlignment="Top" Width="102" Foreground="#FF007ACC" Height="17"/>
+            <TextBlock Margin="43,213,296,0" TextWrapping="Wrap" Text="Shared dll" FontWeight="Bold" VerticalAlignment="Top" Height="23" Foreground="#FF007ACC"/>
+            <TextBlock HorizontalAlignment="Left" Margin="320,-10,0,0" TextWrapping="Wrap" Text="Registry Cleaner" Foreground="black" Style="{StaticResource Heading1}" VerticalAlignment="Top" Height="42" Width="257" Grid.ColumnSpan="2" />
+            <Rectangle HorizontalAlignment="Left"  Height="37"  Width="39"  Margin="26,403,0,0" VerticalAlignment="Top" >
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="/Antivirus;component/Images/yippee 2.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <TextBlock FontStyle="Italic" HorizontalAlignment="Left" Margin="94,414,0,0" TextWrapping="Wrap" Text="Let's Get Secured" VerticalAlignment="Top" Width="183" Height="26" Foreground="#FF007ACC" FontSize="16" FontWeight="Bold"/>
+
+            <CheckBox x:Name="chkMRU"  IsChecked="True" Content="" HorizontalAlignment="Left" Margin="10,133,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.199,0.698"/>
+            <CheckBox x:Name="chkappths"  IsChecked="True" Content="" HorizontalAlignment="Left" Margin="10,173,0,0" VerticalAlignment="Top"/>
+            <CheckBox x:Name="chkapp"  IsChecked="True" Content="" HorizontalAlignment="Left" Margin="10,214,0,0" VerticalAlignment="Top"/>
+            <CheckBox x:Name="chkinstaller"  IsChecked="True" Content="" HorizontalAlignment="Left" Margin="10,253,0,0" VerticalAlignment="Top"/>
+            <CheckBox  IsChecked="True" x:Name="chkp" Content="" HorizontalAlignment="Left" Margin="10,292,0,0" VerticalAlignment="Top"/>
+            <TextBlock  HorizontalAlignment="Left" Margin="43,252,0,0" TextWrapping="Wrap" Text="Installer" VerticalAlignment="Top" Width="138" Height="20" Foreground="#FF007ACC" FontWeight="Bold"/>
+            <Custom:MetroProgressBar x:Name="pbscan" IsIndeterminate="false" Background="Transparent" HorizontalAlignment="Left" Height="18" Margin="197,32,0,0" VerticalAlignment="Top" Width="504" Grid.ColumnSpan="2" Foreground="#FF7B7E80"/>
+
+            <TextBlock HorizontalAlignment="Left" Margin="100,5,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="83" Height="22" Grid.Column="1">
+        <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" Foreground="black"
+               NavigateUri=" https://ramantivirus.com/keep-system-peak-performance-registry-cleaner/">Learn more</Hyperlink>
+            </TextBlock>
+
+        </Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="42,291,0,0" TextWrapping="Wrap" Text="Applications" FontWeight="Bold" VerticalAlignment="Top" Width="138" Height="20" Foreground="#FF007ACC"/>
+        <CheckBox x:Name="chkempty"  IsChecked="True" Content="" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Width="23"/>
+
+
+
+    </Grid>
+</UserControl>

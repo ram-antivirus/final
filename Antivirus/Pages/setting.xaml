@@ -1,0 +1,107 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             xmlns:Custom="http://metro.mahapps.com/winfx/xaml/controls" x:Name="SettingsControl" x:Class="Antivirus.Pages.setting"
+             mc:Ignorable="d"  Width="720.956" Height="495.06" Loaded="SettingsControl_Loaded" >
+    <Grid>
+        <TabControl HorizontalAlignment="Left" Height="Auto" VerticalAlignment="Stretch" Width="771" Margin="-10,0,-40,0" SelectionChanged="TabControl_SelectionChanged">
+            <TabItem Header="PC Settings" Margin="89,1,-89,-1" Custom:ControlsHelper.HeaderFontSize="20" Height="39" VerticalAlignment="Top">
+                <Grid Margin="44,36,28,77">
+
+                    <TextBlock Margin="47,18,457,0" TextWrapping="Wrap" Text="Realtime Scan" VerticalAlignment="Top" Height="30" FontSize="16" Foreground="#FF007ACC" FontWeight="Bold"/>
+                    <TextBlock HorizontalAlignment="Left" Height="30" Margin="47,83,0,0" TextWrapping="Wrap" Text="Run As Startup" VerticalAlignment="Top" Width="204" FontSize="16" Foreground="#FF007ACC" FontWeight="Bold"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="47,146,0,0" TextWrapping="Wrap" Text="USB Port Enable/Disable" VerticalAlignment="Top" Height="30" Width="204" FontSize="16" Foreground="#FF007ACC" FontWeight="Bold"/>
+                    <Custom:ToggleSwitch IsChecked="True" x:Name="intru" HorizontalAlignment="Right" IsCheckedChanged="intru_IsCheckedChanged" Margin="0,140,196,167" OffSwitchBrush="#FFFDFBFA" OnSwitchBrush="#FF007ACC" Foreground="#FF007ACC" Width="106"/>
+                    <Custom:ToggleSwitch IsChecked="True" x:Name="tostartup"   HorizontalAlignment="Left" Margin="391,78,0,0" VerticalAlignment="Top" Width="106" Foreground="#FF007ACC" OffSwitchBrush="#FFFDFBFA" OnSwitchBrush="#FF007ACC" Height="30" IsCheckedChanged="tostartup_IsCheckedChanged" RenderTransformOrigin="-0.322,-4.898"/>
+                    <Custom:ToggleSwitch x:Name="toreal"  HorizontalAlignment="Left" Margin="391,15,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.245,1.562" Height="30" Width="106" Foreground="#FF007ACC" IsCheckedChanged="toreal_IsCheckedChanged" OffSwitchBrush="#FFFDFBFA" OnSwitchBrush="#FF007ACC" />
+                    <TextBlock HorizontalAlignment="Left" Margin="47,211,0,0" TextWrapping="Wrap" Text="Ransomware" VerticalAlignment="Top" Height="30" Width="204" FontSize="16" Foreground="#FF007ACC" FontWeight="Bold"/>
+                    <Custom:ToggleSwitch IsChecked="True" x:Name="selpf" HorizontalAlignment="Right" IsCheckedChanged="intru1_IsCheckedChanged" Margin="0,205,196,102" OffSwitchBrush="#FFFDFBFA" OnSwitchBrush="#FF007ACC" Foreground="#FF007ACC" Width="106"/>
+
+                    <TextBlock HorizontalAlignment="Left" Margin="542,22,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="83" Height="22" Foreground="#FF007ACC">
+       <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" Foreground="black"
+               NavigateUri="https://ramantivirus.com/best-security-real-time-scan/">Learn more</Hyperlink>
+                    </TextBlock>
+                    <TextBlock HorizontalAlignment="Left" Margin="542,89,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="83" Height="22" Foreground="#FF007ACC">
+                       <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" Foreground="black" 
+                            NavigateUri="https://ramantivirus.com/run-at-startup/"><Run Text="Learn more"/></Hyperlink></TextBlock>
+                    <TextBlock HorizontalAlignment="Left" Margin="542,150,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="83" Height="22" Foreground="#FF007ACC">
+                         <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" Foreground="black"
+                            NavigateUri="https://ramantivirus.com/usb-protection/"><Run Text="Learn more" Foreground="black"/></Hyperlink></TextBlock>
+                    <TextBlock HorizontalAlignment="Left" Margin="542,216,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="83" Height="22" Foreground="#FF007ACC"> <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+               NavigateUri="https://ramantivirus.com/tips-prevent-ransomware/" Foreground="black">Learn more</Hyperlink></TextBlock>
+
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Web Settings" Margin="176,1,-227,-1" Custom:ControlsHelper.HeaderFontSize="20" HorizontalAlignment="Left" Width="133">
+                <Grid Margin="44,36,28,77">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="82*"/>
+                        <ColumnDefinition Width="561*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock HorizontalAlignment="Left" Margin="47,18,457,0" TextWrapping="Wrap" Text="Firewall" VerticalAlignment="Top" Height="30" Width="92" Foreground="#FF007ACC" FontSize="16" FontWeight="Bold" Grid.ColumnSpan="2"/>
+                    <Custom:ToggleSwitch x:Name="tofire" IsChecked="True" HorizontalAlignment="Left" Margin="305,12,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.245,1.562" Width="103" Foreground="#FF007ACC" IsCheckedChanged="tofire_IsCheckedChanged" Height="30" OffSwitchBrush="#FFFDFBFA" OnSwitchBrush="#FF007ACC" Grid.Column="1"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="47,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="182" FontSize="16" Foreground="#FF007ACC" FontWeight="Bold" Grid.ColumnSpan="2"><Run Text="Web Advi"/><Run Text="s"/><Run Text="o"/><Run Text="r"/></TextBlock>
+                    <Custom:ToggleSwitch x:Name="webadv" IsChecked="True"  HorizontalAlignment="Right" Margin="0,77,197,230" IsCheckedChanged="webadv_IsCheckedChanged" OffSwitchBrush="#FFFDFBFA" OnSwitchBrush="#FF007ACC" Foreground="#FF007ACC" Width="104" Height="30" Grid.Column="1"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="47,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="138" FontSize="16" Foreground="#FF007ACC" FontWeight="Bold" Grid.ColumnSpan="2"><Run Text="Anti"/><Run Text="-"/><Run Text="phishing"/></TextBlock>
+                    <Custom:ToggleSwitch IsChecked="True" IsCheckedChanged="anti_IsCheckedChanged" x:Name="anti" Margin="305,0,197,167" OffSwitchBrush="#FFFDFBFA" OnSwitchBrush="#FF007ACC" Foreground="#FF007ACC" Height="30" VerticalAlignment="Bottom" Grid.Column="1"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="47,211,0,0" TextWrapping="Wrap" Text="Anti-malware Protection" VerticalAlignment="Top" Height="30" Width="196" Foreground="#FF007ACC" FontSize="16" FontWeight="Bold" Grid.ColumnSpan="2"/>
+                    <Custom:ToggleSwitch IsChecked="True" x:Name="maleware" IsCheckedChanged="mal_IsCheckedChanged" Margin="305,204,197,101" OffSwitchBrush="#FFFDFBFA" OnSwitchBrush="#FF007ACC" Foreground="#FF007ACC" Grid.Column="1"/>
+
+                    <TextBlock HorizontalAlignment="Left" Margin="460,20,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="83" Height="22" Grid.Column="1" Foreground="#FF007ACC">
+        <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" Foreground="Black"
+               NavigateUri="https://ramantivirus.com/secured-network-firewall/">Learn more</Hyperlink>
+                    </TextBlock>
+
+                    <TextBlock HorizontalAlignment="Left" Margin="460,145,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="78" Height="24" Foreground="#FF007ACC" Grid.Column="1">
+        <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" Foreground="Black"
+               NavigateUri="https://ramantivirus.com/anti-phishing-ram-antivirus/">Learn more</Hyperlink>
+                    </TextBlock>
+                    <TextBlock HorizontalAlignment="Left" Margin="460,88,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="83" Height="22" Grid.Column="1" Foreground="#FF007ACC"><Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                            NavigateUri="https://chrome.google.com/webstore/detail/ram-antivirus/glphfgnkljdeaogdmokbldckgmndddkd?hl=en
+"><Run Text="Learn more" Foreground="Black"/></Hyperlink></TextBlock>
+                    <TextBlock HorizontalAlignment="Left" Margin="460,212,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="78" Height="24" Foreground="#FF007ACC" Grid.Column="1"><Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                            NavigateUri="https://ramantivirus.com/malware-can-prevent-malware/"><Run Text="Learn more"  Foreground="Black"/></Hyperlink></TextBlock>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Advanced Settings" Margin="258,1,-258,-1" Custom:ControlsHelper.HeaderFontSize="20" HorizontalAlignment="Left" Width="188" Height="39" VerticalAlignment="Top">
+                <Grid Margin="44,36,28,77">
+
+                    <Custom:ToggleSwitch IsChecked="True" x:Name="ransome" IsCheckedChanged="ransome_IsCheckedChanged" Margin="394,13,196,294" OffSwitchBrush="#FFFDFBFA" OnSwitchBrush="#FF007ACC" Foreground="#FF007ACC" Height="30"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="563,21,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="83" Height="22" Foreground="#FF007ACC">
+        <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" Foreground="Black"
+               NavigateUri="https://ramantivirus.com/process-monitoring/">Learn more</Hyperlink>
+                    </TextBlock>
+                    <TextBlock HorizontalAlignment="Left" Margin="47,18,457,0" TextWrapping="Wrap" Text="Process Monitoring " VerticalAlignment="Top" Foreground="#FF007ACC" FontSize="16" Width="211" FontWeight="Bold" Height="31"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="47,83,0,0" TextWrapping="Wrap" Text="Backup Your Data"  VerticalAlignment="Top" Foreground="#FF007ACC" FontSize="16" Width="211" FontWeight="Bold" Height="31"/>
+                    <Custom:ToggleSwitch IsChecked="True" x:Name="emailscn" IsCheckedChanged="emailscn_IsCheckedChanged" Margin="394,78,196,221" OffSwitchBrush="#FFFDFBFA" OnSwitchBrush="#FF007ACC" Foreground="#FF007ACC"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="563,90,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="83" Height="22" Foreground="#FF007ACC"><Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                            NavigateUri="https://ramantivirus.com/backup-your-data/"><Run Text="Learn more" Foreground="Black"/></Hyperlink></TextBlock>
+                    <TextBlock HorizontalAlignment="Left" Margin="47,146,0,0" TextWrapping="Wrap" Text="Safe Search"  VerticalAlignment="Top" Foreground="#FF007ACC" FontSize="16" Width="167" FontWeight="Bold" Height="31"/>
+                    <Custom:ToggleSwitch IsChecked="True" x:Name="emailscn_Copy" IsCheckedChanged="emailscn_Copy_IsCheckedChanged" Margin="396,142,194,157" OffSwitchBrush="#FFFDFBFA" OnSwitchBrush="#FF007ACC" Foreground="#FF007ACC"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="47,211,0,0" TextWrapping="Wrap" Text="Browser Protection"  VerticalAlignment="Top" Foreground="#FF007ACC" FontSize="16" Width="167" FontWeight="Bold" Height="31"/>
+                    <Custom:ToggleSwitch IsChecked="True" x:Name="emailscn_Copy1" Margin="396,208,194,91" IsCheckedChanged="emailscn_Copy1_IsCheckedChanged" OffSwitchBrush="#FFFDFBFA" OnSwitchBrush="#FF007ACC" Foreground="#FF007ACC"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="563,148,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="83" Height="22" Foreground="#FF007ACC"><Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                            NavigateUri="https://chrome.google.com/webstore/detail/ram-antivirus/glphfgnkljdeaogdmokbldckgmndddkd?hl=en"><Run Text="Learn more" Foreground="Black"/></Hyperlink></TextBlock>
+                    <TextBlock HorizontalAlignment="Left" Margin="563,214,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="83" Height="22" Foreground="#FF007ACC"><Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
+                            NavigateUri="https://ramantivirus.com/ram-browser-cleaner/"><Run Text="Learn more" Foreground="Black"/></Hyperlink></TextBlock>
+
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+        <Rectangle HorizontalAlignment="Left"  Height="37"  Width="39"  Margin="26,415,0,0" VerticalAlignment="Top" >
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/Antivirus;component/Images/yippee 2.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <TextBlock HorizontalAlignment="Left" Margin="82,424,0,0" TextWrapping="Wrap" Text="Let's Get Secured" FontStyle="Italic" VerticalAlignment="Top" Width="190" Height="26" Foreground="#FF007ACC" FontSize="16" FontWeight="Bold"/>
+
+    </Grid>
+</UserControl>

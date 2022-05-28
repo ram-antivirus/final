@@ -1,0 +1,16 @@
+﻿<Controls:MetroWindow x:Class="Antivirus.Pages.Restart"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      Title="Ram Antivirus"
+                     Height="250" HorizontalAlignment="Right"
+        VerticalAlignment="Bottom"
+                      Width="420"  BorderThickness="1"  GlowBrush="{DynamicResource AccentColorBrush}" ShowCloseButton="False" ResizeMode="NoResize">
+    <Grid Margin="0,0,0,1">
+
+        <TextBlock HorizontalAlignment="Left" Name="txt" Foreground="black"  TextWrapping="Wrap" Text="TextBlock" Width="333" Margin="40,60,0,68" TextAlignment="Justify" FontSize="14"/>
+        <Button Content="Restart Later" Background="#FF007ACC" Foreground="White" FontWeight="Bold" HorizontalAlignment="Left" Margin="78,175,0,0" VerticalAlignment="Top" Width="109" RenderTransformOrigin="0.627,0.138" Click="Button_Click" Height="33"/>
+        <Button Content="Restart Now" Background="#FF007ACC" Foreground="White" FontWeight="Bold" HorizontalAlignment="Left" Margin="234,175,0,0" VerticalAlignment="Top" Width="109" Height="33" Click="Button_Click_1"/>
+        <Label x:Name="label" FontWeight="Bold" FontSize="16" Content="Your Computer is about to restart:" HorizontalAlignment="Left" Margin="35,25,0,0" VerticalAlignment="Top" Width="320" Height="35"/>
+    </Grid>
+</Controls:MetroWindow>

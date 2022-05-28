@@ -1,0 +1,28 @@
+﻿<Controls:MetroWindow x:Class="Antivirus.Pages.PopUp"
+                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      Title="WARNING" WindowStartupLocation="CenterScreen" WindowStyle="None"
+                      Height="250" 
+                      Width="420" ResizeMode="NoResize" ShowCloseButton="False" BorderBrush="#FF007ACC" BorderThickness="1" AllowsTransparency="True">
+    
+    <Grid HorizontalAlignment="Left" Height="226" VerticalAlignment="Top" Width="423" Margin="0,0,-11,-2">
+
+        <Button  Content="OK" HorizontalAlignment="Left" Margin="160,181,0,0" VerticalAlignment="Top" Width="87" Background="#FFF93636" Foreground="#FFFBF8F8" Height="32" Click="Button_Click" FontWeight="Bold"/>
+        <Grid HorizontalAlignment="Left" Height="70" VerticalAlignment="Top" Width="423" Background="#FFF93636">
+            <TextBlock  Name="txt"  FontSize="14"   HorizontalAlignment="Left" FontWeight="Bold" Margin="27,97,0,-111" TextWrapping="Wrap" Text="Your Subscription has been expired please renew your license" VerticalAlignment="Top" Width="356" Height="84" Foreground="Black" TextAlignment="Justify" Background="#FFFEFEFE"/>
+            <TextBlock HorizontalAlignment="Left" Margin="83,19,0,0" TextWrapping="Wrap" Text="WARNING" VerticalAlignment="Top" Foreground="White"  Height="30" Width="143" FontSize="20" FontWeight="Bold"/>
+            <Rectangle HorizontalAlignment="Left" Height="66" Margin="5,0,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="76">
+                <Rectangle.Fill>
+                    <ImageBrush
+            			ImageSource="/Antivirus;component/Images/warning.png"
+          />
+                </Rectangle.Fill>
+            </Rectangle>
+
+        </Grid>
+    </Grid>
+
+    <!-- your content -->
+
+</Controls:MetroWindow>
